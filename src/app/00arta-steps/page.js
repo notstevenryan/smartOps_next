@@ -94,7 +94,7 @@ export default function ArtaStepsPage() {
 
                       {/* Direction arrow link to access step information processing details */}
                       <Link 
-                        href={`/services?step=${step.id}`}
+                        href={`/00arta-steps/${step.id}`}
                         className="btn btn-light border btn-sm rounded-circle d-flex align-items-center justify-content-center bg-body shadow-xs"
                         style={{ width: '34px', height: '34px' }}
                       >
