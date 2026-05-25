@@ -299,332 +299,8 @@ const services = {
       walkIn: "*If Thru Walk-in (Secure and submit the accomplished Client Fish Seed Request Form provided)",
     },
   },
+  // --- 4: Training by Clients (was 8) ---
   4: {
-    title: "Processing of Request for Technical Assistance for Inquiries (Through SMS, Phone call and Facebook Messenger)",
-    description:
-      "Technical assistance for Inquiries (Through SMS, Phone call and Facebook Messenger) by sending text and Facebook messages and/or making phone calls to inquire about their issues and concerns on Aquaculture (Hatchery and Grow-Out Culture Systems) management, inland resource management. These involve giving appropriate technical advisory services such as operational procedures for breeding and culture of freshwater fishes, materials, and supplies needed, and the budget/cost for the operation.",
-    info: {
-      office: "National Inland Fisheries Technology Center",
-      classification: "Simple",
-      transactionType: "Government to Government",
-      operatingHours: "8:00 AM to 5:00 PM",
-    },
-    whoMayAvail: "Provincial Fishery Offices (PFOs), Regional Fishery Officers, BFAR Central Office Personnel, BFAR-National Centers",
-    requirements: null,
-    steps: [
-      {
-        num: 1,
-        title: "Submit Request",
-        paths: [
-          {
-            label: "1.A. Thru SMS",
-            icon: "bi-chat-dots",
-            clientAction: "Send inquiry by sending text messages\nPhone: 0997 745 9961",
-            clientFees: "None",
-            agencyActions: [
-              { code: "1.A.", text: "Receive the SMS then refer to the technical staff for appropriate action.", time: "~5 mins", person: "Aquaculturist I, National Inland Fisheries Technology Center; Administrative Aide IV, National Inland Fisheries Technology Center; Administrative Assistant II, National Inland Fisheries Technology Center" },
-            ],
-          },
-          {
-            label: "1.B. Phone call",
-            icon: "bi-telephone",
-            clientAction: "Make a phone call then discuss the inquiry or concerns to the attending staff\nPhone: 0997 745 9961",
-            clientFees: "None",
-            agencyActions: [
-              { code: "1.B.", text: "Answer the phone call then refer to the technical staff for appropriate action.", time: "~5 mins", person: "Aquaculturist I, National Inland Fisheries Technology Center; Administrative Aide IV, National Inland Fisheries Technology Center; Administrative Assistant II, National Inland Fisheries Technology Center" },
-            ],
-          },
-          {
-            label: "1.C. Facebook Messenger",
-            icon: "bi-messenger",
-            clientAction: "Send inquiry by sending a message on the BFAR-NIFTC Facebook Page\nFacebook: BFARNIFTC-Fish-yalan",
-            clientFees: "None",
-            agencyActions: [
-              { code: "1.C.", text: "Receive the message then refer to the technical staff for appropriate action.", time: "~5 mins", person: "Aquaculturist I, National Inland Fisheries Technology Center; Administrative Aide IV, National Inland Fisheries Technology Center; Administrative Assistant II, National Inland Fisheries Technology Center" },
-            ],
-          },
-        ],
-      },
-      {
-        num: 2,
-        title: "Inquiry and Concern",
-        paths: [
-          {
-            label: null,
-            clientAction: "Discuss inquiry and other concerns at:\nPhone/Facebook: 0997745 9961 or BFARNIFTCFish-yalan",
-            clientFees: "None",
-            agencyActions: [
-              { code: "2.", text: "Receive the Inquiry and provide the needed information.", time: "~20 mins", person: "Aquaculturist II, National Inland Fisheries Technology Center; Administrative Aide IV, National Inland Fisheries Technology Center; Administrative Assistant II, National Inland Fisheries Technology Center" },
-            ],
-          },
-        ],
-      },
-    ],
-    totalTime: {
-      columns: [
-        { icon: "bi-chat-dots", label: "*If Thru SMS()", value: "25 minute/s" },
-        { icon: "bi-telephone", label: "*If Thru Phone call()", value: "25 minute/s" },
-        { icon: "bi-messenger", label: "*If Thru Facebook Messenger()", value: "25 minute/s" },
-      ],
-    },
-    totalFee: {
-      columns: [
-        { icon: "bi-chat-dots", label: "*If Thru SMS (Send inquiry by sending text messages)", value: "None" },
-        { icon: "bi-telephone", label: "*If Thru Phone call (Make a phone call then discuss the inquiry or concerns to the attending staff)", value: "None" },
-        { icon: "bi-messenger", label: "*If Thru Facebook Messenger (Send inquiry by sending a message on the BFAR-NIFTC Facebook Page)", value: "None" },
-      ],
-    },
-  },
-  5: {
-    title: "Processing of Request for Technical Assistance for FishFarmer's Seminar",
-    description:
-      "Technical assistance for walk-in clients availing of the free Fish Farmer's Seminar on Hatchery and Grow-Out Culture Systems Management being offered by NIFTC involve an in-depth one-on-one or small group lecture/discussion on the operational procedures for breeding and culture of freshwater fishes/preferred species of the clients.",
-    serviceType: "External Services",
-    info: {
-      office: "National Inland Fisheries Technology Center",
-      classification: "Simple",
-      transactionType: "Government to Government",
-      operatingHours: "8:00 AM to 5:00 PM",
-    },
-    whoMayAvail: "Academe (Students, Faculties, On-the-Job Training, Researcher); Fisher Folk Organization Associations, People's Organization, Cooperatives, Women's Association, Housewives, Senior Citizens, Differently-Abled Persons, Indigenous People; Other Government Agencies, (National Government Agencies (NGAs), Local Government Units (LGUs), House Representatives); Non Government Organizations (NGOs).",
-    requirements: {
-      standard: [
-        { label: "1. Letter Request", note: "(1) Original Copy\nOr (3) Photocopy", source: "Applicant/Client" },
-        { label: "1. Client Request Form", note: "(1) Original Copy", source: "BFAR-NIFTC Fish Production Unit" },
-      ],
-    },
-    steps: [
-      {
-        num: 1,
-        title: "Submit Request",
-        paths: [
-          {
-            label: null,
-            clientAction: "Submit the accomplished Client Request Form or letter request at:\nAdministrative office: BFAR-NIFTC Km 53 Manila",
-            clientFees: "None",
-            agencyActions: [
-              { code: "1.1.", text: "Receive the Client Request Form or letter request.", time: "~5 mins", person: "Aquaculturist I, National Inland Fisheries Technology Center; Administrative Aide IV, National Inland Fisheries Technology Center; Administrative Assistant II, National Inland Fisheries Technology Center" },
-              { code: "1.2.", text: "Endorse the request to the appropriate technical staff/personnel for registration.", time: "~10 mins", person: "Aquaculturist II, National Inland Fisheries Technology Center; Aquaculturist I, National Inland Fisheries Technology Center; Administrative Assistant II, National Inland Fisheries Technology Center" },
-            ],
-          },
-        ],
-      },
-      {
-        num: 2,
-        title: "Distribution and Request",
-        paths: [
-          {
-            label: null,
-            clientAction: "Confirm attendance with NIFTC staff at:\nMalasakit Help Desk: BFAR-NIFTC Km 53 Manila",
-            clientFees: "None",
-            agencyActions: [
-              { code: "2.", text: "Directly inform the client on the schedule of the seminar to be attended based on the preferred topic.", time: "~10 mins", person: "Aquaculturist II, National Inland Fisheries Technology Center; Aquaculturist I, National Inland Fisheries Technology Center; Administrative Assistant II, National Inland Fisheries Technology Center" },
-            ],
-          },
-        ],
-      },
-      {
-        num: 3,
-        title: "Feedback",
-        paths: [
-          {
-            label: null,
-            clientAction: "Secure and submit the filled-out Client Satisfaction/Feedback Form at:\nMalasakit Help Desk: BFAR-NIFTC Km 53 Manila",
-            clientFees: "None",
-            agencyActions: [
-              { code: "3.", text: "Receive the accomplished Client Satisfaction/Feedback Form provided.", time: "~3 mins", person: "Aquaculturist II, National Inland Fisheries Technology Center; Aquaculturist I, National Inland Fisheries Technology Center; Administrative Aide IV, National Inland Fisheries Technology Center; Administrative Assistant II, National Inland Fisheries Technology Center" },
-            ],
-          },
-        ],
-      },
-    ],
-    totalTime: {
-      columns: [
-        { icon: "bi-person-check", label: "Standard request", value: "28 minutes" },
-      ],
-    },
-    totalFee: {
-      columns: [
-        { icon: "bi-person-check", label: "Standard request", value: "None" },
-      ],
-    },
-  },
-  6: {
-    title: "Processing of Request for Technical Assistance for Inquiries (Through Email and Walk-in)",
-    description:
-      "Technical assistance for Inquiries (Through Email and Walk-in) physically appears in the NIFTC Office and/or send email to inquire about their issues and concerns on Aquaculture (Hatchery and Grow-Out Culture Systems) Management. These involve giving appropriate technical advisory services such as operational procedures for breeding and culture of freshwater fishes, materials, and supplies needed, and the budget/cost for the operation.",
-    info: {
-      office: "National Inland Fisheries Technology Center",
-      classification: "Simple",
-      transactionType: "Government to Government",
-      operatingHours: "8:00 AM to 5:00 PM",
-    },
-    whoMayAvail: "Provincial Fishery Offices (PFOs), Regional Fishery Officers, BFAR Central Office Personnel, BFAR-National Centers",
-    requirements: null,
-    steps: [
-      {
-        num: 1,
-        title: "Submit Request",
-        paths: [
-          {
-            label: "1.A. Thru Email",
-            icon: "bi-envelope",
-            clientAction: "Submit inquiry through E-mail\nEmail: niftc@bfar.da.gov.ph",
-            clientFees: "None",
-            agencyActions: [
-              { code: "1.A.1.", text: "Receive the client's inquiry then refer to the technical staff to render advisory services.", time: "~5 mins", person: "Aquaculturist I, National Inland Fisheries Technology Center; Administrative Aide IV, National Inland Fisheries Technology Center; Administrative Assistant II, National Inland Fisheries Technology Center" },
-              { code: "1.A.2.", text: "Provide the appropriate technical advisory and assistance.", time: "~1 hour/s", person: "Senior Aquaculturist, National Inland Fisheries Technology Center; Aquaculturist II, National Inland Fisheries Technology Center; Aquaculturist I, National Inland Fisheries Technology Center; Administrative Assistant II, National Inland Fisheries Technology Center" },
-            ],
-          },
-          {
-            label: "1.B. Walk-in",
-            icon: "bi-person-walking",
-            clientAction: "Discuss inquiry or concerns\nMalasakit Help Desk: BFAR-NIFTC Km 53 Manila",
-            clientFees: "None",
-            agencyActions: [
-              { code: "1.B.", text: "Provide the appropriate technical advisory and assistance.", time: "~1 hour/s", person: "Senior Aquaculturist, National Inland Fisheries Technology Center; Aquaculturist II, National Inland Fisheries Technology Center; Aquaculturist I, National Inland Fisheries Technology Center; Administrative Assistant II, National Inland Fisheries Technology Center" },
-            ],
-          },
-        ],
-      },
-      {
-        num: 2,
-        title: "Feedback",
-        paths: [
-          {
-            label: null,
-            clientAction: "Secure and submit filled-out Client Satisfaction/Feedback Form at:\nAdministrative Office: BFAR-NIFTC Km 53 Manila East Road, Sitio Sayoc, Brgy. Tandang Kutyo, Tanay, Rizal",
-            clientFees: "None",
-            agencyActions: [
-              { code: "2.", text: "Receive the accomplished Client Satisfaction/Feedback Form provided.", time: "~3 mins", person: "Senior Aquaculturist, National Inland Fisheries Technology Center; Aquaculturist F, National Inland Fisheries Technology Center; Aquaculturist I, National Inland Fisheries Technology Center; Administrative Assistant II, National Inland Fisheries Technology Center" },
-            ],
-          },
-        ],
-      },
-    ],
-    totalTime: {
-      columns: [
-        { icon: "bi-envelope", label: "*If Thru E-mail ()", value: "1 hour/s, 8 minute/s" },
-        { icon: "bi-person-walking", label: "*If Thru Walk-in ()", value: "1 hour/s, 3 minute/s" },
-      ],
-    },
-    totalFee: {
-      columns: [
-        { icon: "bi-envelope", label: "*If Thru E-mail (Submit letter request through E-mail)", value: "None" },
-        { icon: "bi-person-walking", label: "*If Thru Walk-in (Secure and submit the accomplished Client Fish Seed Request Form provided)", value: "None" },
-      ],
-    },
-  },
-  7: {
-    title: "Processing of Request for Technical Assistance for on-Site Visit/Inspection",
-    description:
-      "Technical assistance thru site visits will be conducted by NIFTC Technical Staff to assist/guide clients by physically conducting an ocular inspection/site visit in their grow-out farms/hatchery facilities, data gathering, assessment, and provision of adequate technical advisory.",
-    info: {
-      office: "National Inland Fisheries Technology Center",
-      classification: "Simple",
-      transactionType: "Government to Government",
-      operatingHours: "8:00 AM to 5:00 PM",
-    },
-    whoMayAvail: "Provincial Fishery Offices (PFOs), Regional Fishery Officers, BFAR Central Office Personnel, BFAR-National Centers",
-    requirements: {
-      email: [{ label: "1. Letter Request", note: "(1) Electronic Copy", source: "Applicant/Client" }],
-      walkIn: [
-        { label: "1. Letter Request", note: "(1) Original Copy Or (1) Photo Copy", source: "Applicant/Client" },
-        { label: "2. Client Request Form", note: "(1) Original Copy", source: "BFAR-NIFTC Malasakit Help Desk" },
-      ],
-    },
-    steps: [
-      {
-        num: 1,
-        title: "Submit Request",
-        paths: [
-          {
-            label: "1.A. Thru E-mail Path",
-            icon: "bi-envelope",
-            clientAction: "Submit letter request through email\nEmail: niftc@bfar.da.gov.ph",
-            clientFees: "None",
-            agencyActions: [
-              { code: "1.A.1.", text: "Receive the letter request through email.", time: "~5 mins", person: "Aquaculturist I, National Inland Fisheries Technology Center; Administrative Aide IV, National Inland Fisheries Technology Center; Administrative Assistant II, National Inland Fisheries Technology Center" },
-              { code: "1.A.2.", text: "Forward the received letter request to the Chief Aquaculturist for approval and for appropriate action.", time: "~5 mins", person: "Aquaculturist I, National Inland Fisheries Technology Center; Administrative Aide IV, National Inland Fisheries Technology Center; Administrative Assistant II, National Inland Fisheries Technology Center" },
-              { code: "1.A.3.", text: "Assign technical staff to assist with the client's request.", time: "~20 mins", person: "Chief Aquaculturist, National Inland Fisheries Technology Center" },
-              { code: "1.A.4.", text: "Coordinate and confirm schedule with assigned staff.", time: "~10 mins", person: "Aquaculturist I, National Inland Fisheries Technology Center; Administrative Aide IV, National Inland Fisheries Technology Center; Administrative Assistant II, National Inland Fisheries Technology Center" },
-              { code: "1.A.5.", text: "Notify the clients on the schedule of the site visit/inspection via email.", time: "~5 mins", person: "Senior Aquaculturist, National Inland Fisheries Technology Center; Aquaculturist II, National Inland Fisheries Technology Center; Aquaculturist I, National Inland Fisheries Technology Center; Administrative Aide IV, National Inland Fisheries Technology Center; Administrative Assistant II, National Inland Fisheries Technology Center" },
-            ],
-          },
-          {
-            label: "1.B. Thru Walk-in",
-            icon: "bi-person-walking",
-            clientAction: "Submit the Letter Request or the accomplished Client Request Form\nAdministrative Office: BFAR-NIFTC Km 53 Manila East Road, Sitio Sayoc, Brgy. Tandang Kutyo, Tanay, Rizal",
-            clientFees: "None",
-            agencyActions: [
-              { code: "1.B.1.", text: "Receive accomplished Client Request Form or Letter request.", time: "~4 mins", person: "Aquaculturist I, National Inland Fisheries Technology Center; Administrative Aide IV, National Inland Fisheries Technology Center; Administrative Assistant II, National Inland Fisheries Technology Center" },
-              { code: "1.B.2.", text: "Forward received accomplished client request form and letter request to the Chief Aquaculturist for approval and for appropriate action.", time: "~5 mins", person: "Aquaculturist I, National Inland Fisheries Technology Center; Administrative Assistant II, National Inland Fisheries Technology Center" },
-              { code: "1.B.3.", text: "Approve request and assign technical staff to assist the client's request.", time: "~20 mins", person: "Chief Aquaculturist, National Inland Fisheries Technology Center" },
-              { code: "1.B.4.", text: "Coordinate and confirm schedule with assigned staff.", time: "~10 mins", person: "Aquaculturist I, National Inland Fisheries Technology Center; Administrative Aide IV, National Inland Fisheries Technology Center; Administrative Assistant II, National Inland Fisheries Technology Center" },
-              { code: "1.B.5.", text: "Notify the clients on the schedule of the site visit/inspection.", time: "~5 mins", person: "Senior Aquaculturist, National Inland Fisheries Technology Center; Aquaculturist II, National Inland Fisheries Technology Center; Aquaculturist I, National Inland Fisheries Technology Center; Administrative Aide IV, National Inland Fisheries Technology Center; Administrative Assistant II, National Inland Fisheries Technology Center" },
-            ],
-          },
-        ],
-      },
-      {
-        num: 2,
-        title: "Site Visit",
-        paths: [
-          {
-            label: null,
-            clientAction: "Allow the conduct of a site visit\nAdministrative Office: BFAR-NIFTC Km 53 Manila East Road, Sitio Sayoc, Brgy. Tandang Kutyo, Tanay, Rizal",
-            clientFees: "None",
-            agencyActions: [
-              { code: "2.1.", text: "Conduct actual sitevisit/inspection/sampling.", time: "~5 hour/s", person: "Senior Aquaculturist, National Inland Fisheries Technology Center; Aquaculturist II, National Inland Fisheries Technology Center; Aquaculturist I, National Inland Fisheries Technology Center; Administrative Aide IV, National Inland Fisheries Technology Center; Administrative Assistant II, National Inland Fisheries Technology Center" },
-              { code: "2.2.", text: "Prepare a report of inspection and recommendation to be signed by the Chief Aquaculturist.", time: "~2 hour/s", person: "Senior Aquaculturist, National Inland Fisheries Technology Center; Aquaculturist II, National Inland Fisheries Technology Center; Aquaculturist I, National Inland Fisheries Technology Center; Administrative Aide IV, National Inland Fisheries Technology Center; Administrative Assistant II, National Inland Fisheries Technology Center" },
-              { code: "2.3.", text: "Sign the report of inspection with recommendation for endorsement to the client.", time: "~10 mins", person: "Chief Aquaculturist, National Inland Fisheries Technology Center" },
-            ],
-          },
-        ],
-      },
-      {
-        num: 3,
-        title: "Report and Recommendation",
-        paths: [
-          {
-            label: null,
-            clientAction: "Receive the endorsed inspection report and recommendation at:\nMalasakit Help Desk: BFAR-NIFTC Km 53 Manila",
-            clientFees: "None",
-            agencyActions: [
-              { code: "3.", text: "Endorse the inspection report and recommendation signed by the Chief Aquaculturist, to the client.", time: "~10 mins", person: "Aquaculturist I, National Inland Fisheries Technology Center; Aquaculturist II, National Inland Fisheries Technology Center; Administrative Aide IV, National Inland Fisheries Technology Center; Administrative Assistant II, National Inland Fisheries Technology Center" },
-            ],
-          },
-        ],
-      },
-      {
-        num: 4,
-        title: "Feedback",
-        paths: [
-          {
-            label: null,
-            clientAction: "Secure and submit the filled-out Client Satisfaction/Feedback Form at:\nMalasakit Help Desk: BFAR-NIFTC Km 53 Manila",
-            clientFees: "None",
-            agencyActions: [
-              { code: "4.", text: "Receive the accomplished Client Satisfaction/Feedback Form provided.", time: "~2 mins", person: "Senior Aquaculturist, National Inland Fisheries Technology Center; Aquaculturist II, National Inland Fisheries Technology Center; Aquaculturist I, National Inland Fisheries Technology Center; Administrative Aide IV, National Inland Fisheries Technology Center; Administrative Assistant II, National Inland Fisheries Technology Center" },
-            ],
-          },
-        ],
-      },
-    ],
-    totalTime: {
-      columns: [
-        { icon: "bi-envelope", label: "*If Thru E-mail ()", value: "1 working day/s, 2 minutes/s" },
-        { icon: "bi-person-walking", label: "*If Thru Walk-in ()", value: "1 working day/s, 1 minutes/s" },
-      ],
-    },
-    totalFee: {
-      columns: [
-        { icon: "bi-envelope", label: "*If Thru E-mail (Submit letter request through E-mail)", value: "None" },
-        { icon: "bi-person-walking", label: "*If Thru Walk-in (Secure and submit the accomplished Client Fish Seed Request Form provided)", value: "None" },
-      ],
-    },
-  },
-  8: {
     title: "Processing of Request for Training Request by Clients",
     description:
       "Training programs requested by clients shall be conducted to accomodate specialized or customized courses in freshwater aquaculture, inland resource management, and other areas aligned with the Center's mandates and functions, tailored to the client's need.",
@@ -677,18 +353,212 @@ const services = {
         ],
       },
     ],
+    totalTime: { columns: [{ icon: "bi-person-check", label: "Standard request", value: "3 hour/s, 40 minute/s" }] },
+    totalFee: { columns: [{ icon: "bi-person-check", label: "Standard request", value: "None" }] },
+  },
+
+  // --- 5: Fish Farmers Seminar (unchanged) ---
+  5: {
+    title: "Processing of Request for Technical Assistance for FishFarmer's Seminar",
+    description:
+      "Technical assistance for walk-in clients availing of the free Fish Farmer's Seminar on Hatchery and Grow-Out Culture Systems Management being offered by NIFTC involve an in-depth one-on-one or small group lecture/discussion on the operational procedures for breeding and culture of freshwater fishes/preferred species of the clients.",
+    serviceType: "External Services",
+    info: {
+      office: "National Inland Fisheries Technology Center",
+      classification: "Simple",
+      transactionType: "Government to Government",
+      operatingHours: "8:00 AM to 5:00 PM",
+    },
+    whoMayAvail: "Academe (Students, Faculties, On-the-Job Training, Researcher); Fisher Folk Organization Associations, People's Organization, Cooperatives, Women's Association, Housewives, Senior Citizens, Differently-Abled Persons, Indigenous People; Other Government Agencies, (National Government Agencies (NGAs), Local Government Units (LGUs), House Representatives); Non Government Organizations (NGOs).",
+    requirements: {
+      standard: [
+        { label: "1. Letter Request", note: "(1) Original Copy\nOr (3) Photocopy", source: "Applicant/Client" },
+        { label: "1. Client Request Form", note: "(1) Original Copy", source: "BFAR-NIFTC Fish Production Unit" },
+      ],
+    },
+    steps: [
+      { num: 1, title: "Submit Request", paths: [{ label: null, clientAction: "Submit the accomplished Client Request Form or letter request at:\nAdministrative office: BFAR-NIFTC Km 53 Manila", clientFees: "None", agencyActions: [{ code: "1.1.", text: "Receive the Client Request Form or letter request.", time: "~5 mins", person: "Aquaculturist I, National Inland Fisheries Technology Center; Administrative Aide IV, National Inland Fisheries Technology Center; Administrative Assistant II, National Inland Fisheries Technology Center" }, { code: "1.2.", text: "Endorse the request to the appropriate technical staff/personnel for registration.", time: "~10 mins", person: "Aquaculturist II, National Inland Fisheries Technology Center; Aquaculturist I, National Inland Fisheries Technology Center; Administrative Assistant II, National Inland Fisheries Technology Center" }] }] },
+      { num: 2, title: "Distribution and Request", paths: [{ label: null, clientAction: "Confirm attendance with NIFTC staff at:\nMalasakit Help Desk: BFAR-NIFTC Km 53 Manila", clientFees: "None", agencyActions: [{ code: "2.", text: "Directly inform the client on the schedule of the seminar to be attended based on the preferred topic.", time: "~10 mins", person: "Aquaculturist II, National Inland Fisheries Technology Center; Aquaculturist I, National Inland Fisheries Technology Center; Administrative Assistant II, National Inland Fisheries Technology Center" }] }] },
+      { num: 3, title: "Feedback", paths: [{ label: null, clientAction: "Secure and submit the filled-out Client Satisfaction/Feedback Form at:\nMalasakit Help Desk: BFAR-NIFTC Km 53 Manila", clientFees: "None", agencyActions: [{ code: "3.", text: "Receive the accomplished Client Satisfaction/Feedback Form provided.", time: "~3 mins", person: "Aquaculturist II, National Inland Fisheries Technology Center; Aquaculturist I, National Inland Fisheries Technology Center; Administrative Aide IV, National Inland Fisheries Technology Center; Administrative Assistant II, National Inland Fisheries Technology Center" }] }] },
+    ],
+    totalTime: { columns: [{ icon: "bi-person-check", label: "Standard request", value: "28 minutes" }] },
+    totalFee: { columns: [{ icon: "bi-person-check", label: "Standard request", value: "None" }] },
+  },
+
+  // --- 6: Site Visit/Inspection (was 7) ---
+  6: {
+    title: "Processing of Request for Technical Assistance for on-Site Visit/Inspection",
+    description:
+      "Technical assistance thru site visits will be conducted by NIFTC Technical Staff to assist/guide clients by physically conducting an ocular inspection/site visit in their grow-out farms/hatchery facilities, data gathering, assessment, and provision of adequate technical advisory.",
+    info: {
+      office: "National Inland Fisheries Technology Center",
+      classification: "Simple",
+      transactionType: "Government to Government",
+      operatingHours: "8:00 AM to 5:00 PM",
+    },
+    whoMayAvail: "Provincial Fishery Offices (PFOs), Regional Fishery Officers, BFAR Central Office Personnel, BFAR-National Centers",
+    requirements: {
+      email: [{ label: "1. Letter Request", note: "(1) Electronic Copy", source: "Applicant/Client" }],
+      walkIn: [
+        { label: "1. Letter Request", note: "(1) Original Copy Or (1) Photo Copy", source: "Applicant/Client" },
+        { label: "2. Client Request Form", note: "(1) Original Copy", source: "BFAR-NIFTC Malasakit Help Desk" },
+      ],
+    },
+    steps: [
+      {
+        num: 1, title: "Submit Request",
+        paths: [
+          { label: "1.A. Thru E-mail Path", icon: "bi-envelope", clientAction: "Submit letter request through email\nEmail: niftc@bfar.da.gov.ph", clientFees: "None", agencyActions: [{ code: "1.A.1.", text: "Receive the letter request through email.", time: "~5 mins", person: "Aquaculturist I, National Inland Fisheries Technology Center; Administrative Aide IV, National Inland Fisheries Technology Center; Administrative Assistant II, National Inland Fisheries Technology Center" }, { code: "1.A.2.", text: "Forward the received letter request to the Chief Aquaculturist for approval and for appropriate action.", time: "~5 mins", person: "Aquaculturist I, National Inland Fisheries Technology Center; Administrative Aide IV, National Inland Fisheries Technology Center; Administrative Assistant II, National Inland Fisheries Technology Center" }, { code: "1.A.3.", text: "Assign technical staff to assist with the client's request.", time: "~20 mins", person: "Chief Aquaculturist, National Inland Fisheries Technology Center" }, { code: "1.A.4.", text: "Coordinate and confirm schedule with assigned staff.", time: "~10 mins", person: "Aquaculturist I, National Inland Fisheries Technology Center; Administrative Aide IV, National Inland Fisheries Technology Center; Administrative Assistant II, National Inland Fisheries Technology Center" }, { code: "1.A.5.", text: "Notify the clients on the schedule of the site visit/inspection via email.", time: "~5 mins", person: "Senior Aquaculturist, National Inland Fisheries Technology Center; Aquaculturist II, National Inland Fisheries Technology Center; Aquaculturist I, National Inland Fisheries Technology Center; Administrative Aide IV, National Inland Fisheries Technology Center; Administrative Assistant II, National Inland Fisheries Technology Center" }] },
+          { label: "1.B. Thru Walk-in", icon: "bi-person-walking", clientAction: "Submit the Letter Request or the accomplished Client Request Form\nAdministrative Office: BFAR-NIFTC Km 53 Manila East Road, Sitio Sayoc, Brgy. Tandang Kutyo, Tanay, Rizal", clientFees: "None", agencyActions: [{ code: "1.B.1.", text: "Receive accomplished Client Request Form or Letter request.", time: "~4 mins", person: "Aquaculturist I, National Inland Fisheries Technology Center; Administrative Aide IV, National Inland Fisheries Technology Center; Administrative Assistant II, National Inland Fisheries Technology Center" }, { code: "1.B.2.", text: "Forward received accomplished client request form and letter request to the Chief Aquaculturist for approval and for appropriate action.", time: "~5 mins", person: "Aquaculturist I, National Inland Fisheries Technology Center; Administrative Assistant II, National Inland Fisheries Technology Center" }, { code: "1.B.3.", text: "Approve request and assign technical staff to assist the client's request.", time: "~20 mins", person: "Chief Aquaculturist, National Inland Fisheries Technology Center" }, { code: "1.B.4.", text: "Coordinate and confirm schedule with assigned staff.", time: "~10 mins", person: "Aquaculturist I, National Inland Fisheries Technology Center; Administrative Aide IV, National Inland Fisheries Technology Center; Administrative Assistant II, National Inland Fisheries Technology Center" }, { code: "1.B.5.", text: "Notify the clients on the schedule of the site visit/inspection.", time: "~5 mins", person: "Senior Aquaculturist, National Inland Fisheries Technology Center; Aquaculturist II, National Inland Fisheries Technology Center; Aquaculturist I, National Inland Fisheries Technology Center; Administrative Aide IV, National Inland Fisheries Technology Center; Administrative Assistant II, National Inland Fisheries Technology Center" }] },
+        ],
+      },
+      { num: 2, title: "Site Visit", paths: [{ label: null, clientAction: "Allow the conduct of a site visit\nAdministrative Office: BFAR-NIFTC Km 53 Manila East Road, Sitio Sayoc, Brgy. Tandang Kutyo, Tanay, Rizal", clientFees: "None", agencyActions: [{ code: "2.1.", text: "Conduct actual sitevisit/inspection/sampling.", time: "~5 hour/s", person: "Senior Aquaculturist, National Inland Fisheries Technology Center; Aquaculturist II, National Inland Fisheries Technology Center; Aquaculturist I, National Inland Fisheries Technology Center; Administrative Aide IV, National Inland Fisheries Technology Center; Administrative Assistant II, National Inland Fisheries Technology Center" }, { code: "2.2.", text: "Prepare a report of inspection and recommendation to be signed by the Chief Aquaculturist.", time: "~2 hour/s", person: "Senior Aquaculturist, National Inland Fisheries Technology Center; Aquaculturist II, National Inland Fisheries Technology Center; Aquaculturist I, National Inland Fisheries Technology Center; Administrative Aide IV, National Inland Fisheries Technology Center; Administrative Assistant II, National Inland Fisheries Technology Center" }, { code: "2.3.", text: "Sign the report of inspection with recommendation for endorsement to the client.", time: "~10 mins", person: "Chief Aquaculturist, National Inland Fisheries Technology Center" }] }] },
+      { num: 3, title: "Report and Recommendation", paths: [{ label: null, clientAction: "Receive the endorsed inspection report and recommendation at:\nMalasakit Help Desk: BFAR-NIFTC Km 53 Manila", clientFees: "None", agencyActions: [{ code: "3.", text: "Endorse the inspection report and recommendation signed by the Chief Aquaculturist, to the client.", time: "~10 mins", person: "Aquaculturist I, National Inland Fisheries Technology Center; Aquaculturist II, National Inland Fisheries Technology Center; Administrative Aide IV, National Inland Fisheries Technology Center; Administrative Assistant II, National Inland Fisheries Technology Center" }] }] },
+      { num: 4, title: "Feedback", paths: [{ label: null, clientAction: "Secure and submit the filled-out Client Satisfaction/Feedback Form at:\nMalasakit Help Desk: BFAR-NIFTC Km 53 Manila", clientFees: "None", agencyActions: [{ code: "4.", text: "Receive the accomplished Client Satisfaction/Feedback Form provided.", time: "~2 mins", person: "Senior Aquaculturist, National Inland Fisheries Technology Center; Aquaculturist II, National Inland Fisheries Technology Center; Aquaculturist I, National Inland Fisheries Technology Center; Administrative Aide IV, National Inland Fisheries Technology Center; Administrative Assistant II, National Inland Fisheries Technology Center" }] }] },
+    ],
+    totalTime: { columns: [{ icon: "bi-envelope", label: "*If Thru E-mail ()", value: "1 working day/s, 2 minutes/s" }, { icon: "bi-person-walking", label: "*If Thru Walk-in ()", value: "1 working day/s, 1 minutes/s" }] },
+    totalFee: { columns: [{ icon: "bi-envelope", label: "*If Thru E-mail (Submit letter request through E-mail)", value: "None" }, { icon: "bi-person-walking", label: "*If Thru Walk-in (Secure and submit the accomplished Client Fish Seed Request Form provided)", value: "None" }] },
+  },
+
+  // --- 7: Inquiries Email & Walk-in (was 6) ---
+  7: {
+    title: "Processing of Request for Technical Assistance for Inquiries (Through Email and Walk-in)",
+    description:
+      "Technical assistance for Inquiries (Through Email and Walk-in) physically appears in the NIFTC Office and/or send email to inquire about their issues and concerns on Aquaculture (Hatchery and Grow-Out Culture Systems) Management. These involve giving appropriate technical advisory services such as operational procedures for breeding and culture of freshwater fishes, materials, and supplies needed, and the budget/cost for the operation.",
+    info: {
+      office: "National Inland Fisheries Technology Center",
+      classification: "Simple",
+      transactionType: "Government to Government",
+      operatingHours: "8:00 AM to 5:00 PM",
+    },
+    whoMayAvail: "Provincial Fishery Offices (PFOs), Regional Fishery Officers, BFAR Central Office Personnel, BFAR-National Centers",
+    requirements: null,
+    steps: [
+      { num: 1, title: "Submit Request", paths: [{ label: "1.A. Thru Email", icon: "bi-envelope", clientAction: "Submit inquiry through E-mail\nEmail: niftc@bfar.da.gov.ph", clientFees: "None", agencyActions: [{ code: "1.A.1.", text: "Receive the client's inquiry then refer to the technical staff to render advisory services.", time: "~5 mins", person: "Aquaculturist I, National Inland Fisheries Technology Center; Administrative Aide IV, National Inland Fisheries Technology Center; Administrative Assistant II, National Inland Fisheries Technology Center" }, { code: "1.A.2.", text: "Provide the appropriate technical advisory and assistance.", time: "~1 hour/s", person: "Senior Aquaculturist, National Inland Fisheries Technology Center; Aquaculturist II, National Inland Fisheries Technology Center; Aquaculturist I, National Inland Fisheries Technology Center; Administrative Assistant II, National Inland Fisheries Technology Center" }] }, { label: "1.B. Walk-in", icon: "bi-person-walking", clientAction: "Discuss inquiry or concerns\nMalasakit Help Desk: BFAR-NIFTC Km 53 Manila", clientFees: "None", agencyActions: [{ code: "1.B.", text: "Provide the appropriate technical advisory and assistance.", time: "~1 hour/s", person: "Senior Aquaculturist, National Inland Fisheries Technology Center; Aquaculturist II, National Inland Fisheries Technology Center; Aquaculturist I, National Inland Fisheries Technology Center; Administrative Assistant II, National Inland Fisheries Technology Center" }] }] },
+      { num: 2, title: "Feedback", paths: [{ label: null, clientAction: "Secure and submit filled-out Client Satisfaction/Feedback Form at:\nAdministrative Office: BFAR-NIFTC Km 53 Manila East Road, Sitio Sayoc, Brgy. Tandang Kutyo, Tanay, Rizal", clientFees: "None", agencyActions: [{ code: "2.", text: "Receive the accomplished Client Satisfaction/Feedback Form provided.", time: "~3 mins", person: "Senior Aquaculturist, National Inland Fisheries Technology Center; Aquaculturist I, National Inland Fisheries Technology Center; Administrative Assistant II, National Inland Fisheries Technology Center" }] }] },
+    ],
+    totalTime: { columns: [{ icon: "bi-envelope", label: "*If Thru E-mail ()", value: "1 hour/s, 8 minute/s" }, { icon: "bi-person-walking", label: "*If Thru Walk-in ()", value: "1 hour/s, 3 minute/s" }] },
+    totalFee: { columns: [{ icon: "bi-envelope", label: "*If Thru E-mail (Submit letter request through E-mail)", value: "None" }, { icon: "bi-person-walking", label: "*If Thru Walk-in (Secure and submit the accomplished Client Fish Seed Request Form provided)", value: "None" }] },
+  },
+
+  // --- 8: Inquiries SMS/Phone/Facebook (was 4) ---
+  8: {
+    title: "Processing of Request for Technical Assistance for Inquiries (Through SMS, Phone call and Facebook Messenger)",
+    description:
+      "Technical assistance for Inquiries (Through SMS, Phone call and Facebook Messenger) by sending text and Facebook messages and/or making phone calls to inquire about their issues and concerns on Aquaculture (Hatchery and Grow-Out Culture Systems) management, inland resource management. These involve giving appropriate technical advisory services such as operational procedures for breeding and culture of freshwater fishes, materials, and supplies needed, and the budget/cost for the operation.",
+    info: {
+      office: "National Inland Fisheries Technology Center",
+      classification: "Simple",
+      transactionType: "Government to Government",
+      operatingHours: "8:00 AM to 5:00 PM",
+    },
+    whoMayAvail: "Provincial Fishery Offices (PFOs), Regional Fishery Officers, BFAR Central Office Personnel, BFAR-National Centers",
+    requirements: null,
+    steps: [
+      {
+        num: 1, title: "Submit Request",
+        paths: [
+          { label: "1.A. Thru SMS", icon: "bi-chat-dots", clientAction: "Send inquiry by sending text messages\nPhone: 0997 745 9961", clientFees: "None", agencyActions: [{ code: "1.A.", text: "Receive the SMS then refer to the technical staff for appropriate action.", time: "~5 mins", person: "Aquaculturist I, National Inland Fisheries Technology Center; Administrative Aide IV, National Inland Fisheries Technology Center; Administrative Assistant II, National Inland Fisheries Technology Center" }] },
+          { label: "1.B. Phone call", icon: "bi-telephone", clientAction: "Make a phone call then discuss the inquiry or concerns to the attending staff\nPhone: 0997 745 9961", clientFees: "None", agencyActions: [{ code: "1.B.", text: "Answer the phone call then refer to the technical staff for appropriate action.", time: "~5 mins", person: "Aquaculturist I, National Inland Fisheries Technology Center; Administrative Aide IV, National Inland Fisheries Technology Center; Administrative Assistant II, National Inland Fisheries Technology Center" }] },
+          { label: "1.C. Facebook Messenger", icon: "bi-messenger", clientAction: "Send inquiry by sending a message on the BFAR-NIFTC Facebook Page\nFacebook: BFARNIFTC-Fish-yalan", clientFees: "None", agencyActions: [{ code: "1.C.", text: "Receive the message then refer to the technical staff for appropriate action.", time: "~5 mins", person: "Aquaculturist I, National Inland Fisheries Technology Center; Administrative Aide IV, National Inland Fisheries Technology Center; Administrative Assistant II, National Inland Fisheries Technology Center" }] },
+        ],
+      },
+      { num: 2, title: "Inquiry and Concern", paths: [{ label: null, clientAction: "Discuss inquiry and other concerns at:\nPhone/Facebook: 0997745 9961 or BFARNIFTCFish-yalan", clientFees: "None", agencyActions: [{ code: "2.", text: "Receive the Inquiry and provide the needed information.", time: "~20 mins", person: "Aquaculturist II, National Inland Fisheries Technology Center; Administrative Aide IV, National Inland Fisheries Technology Center; Administrative Assistant II, National Inland Fisheries Technology Center" }] }] },
+    ],
+    totalTime: { columns: [{ icon: "bi-chat-dots", label: "*If Thru SMS()", value: "25 minute/s" }, { icon: "bi-telephone", label: "*If Thru Phone call()", value: "25 minute/s" }, { icon: "bi-messenger", label: "*If Thru Facebook Messenger()", value: "25 minute/s" }] },
+    totalFee: { columns: [{ icon: "bi-chat-dots", label: "*If Thru SMS (Send inquiry by sending text messages)", value: "None" }, { icon: "bi-telephone", label: "*If Thru Phone call (Make a phone call then discuss the inquiry or concerns to the attending staff)", value: "None" }, { icon: "bi-messenger", label: "*If Thru Facebook Messenger (Send inquiry by sending a message on the BFAR-NIFTC Facebook Page)", value: "None" }] },
+  },
+
+  // --- 9: Dormitory Accommodation (NEW) ---
+  9: {
+    title: "Processing of Request for Accommodation at BFAR-NIFTC Dormitory",
+    description:
+      "BFAR-NIFTC provides a dormitory facility for the temporary accommodation of personnel who are in the area to attend to official duties and activities at the NIFTC or in nearby locations.",
+    info: {
+      office: "National Inland Fisheries Technology Center",
+      classification: "Simple",
+      transactionType: "Government to Government",
+      operatingHours: "8:00 AM to 5:00 PM",
+    },
+    whoMayAvail: "Provincial Fishery Offices (PFOs), Regional Fishery Officers, BFAR Central Office Personnel, BFAR-National Centers",
+    requirements: {
+      twoColumn: {
+        leftLabel: "A. For BFAR-NIFTC Staff",
+        leftIcon: "bi-person-badge",
+        left: [
+          { label: "A.1. Memorandum or Fisheries Office Order (FOO) of training and seminar to be conducted indicating the List of Participants and the Requesting Party", note: "(1) Photo Copy", source: "Applicant/Client" },
+        ],
+        rightLabel: "B. For BFAR Central Office, Regional Fisheries Office and National Centers Personnel",
+        rightIcon: "bi-building",
+        right: [
+          { label: "1. BFAR Employee's Identification Card\nBFAR ID", note: "Remarks: The original ID must be presented upon arrival at the BFAR-NIFTC Office Dormitory", source: null },
+          { label: "2. Letter Request", note: "(1) Electronic Copy", source: "Applicant/Client" },
+          { label: "3. Memorandum or Fisheries Office Order (FOO) of training and seminar to be conducted indicating the List of Participants and the Requesting Party", note: "(1) Photo Copy", source: "Applicant/Client" },
+        ],
+      },
+    },
+    steps: [
+      {
+        num: 1,
+        title: "Submit Request",
+        paths: [
+          {
+            label: "1.A. For BFAR-NIFTC Staff",
+            icon: "bi-person-badge",
+            clientAction: "Submit the Memorandum or Fisheries Office Order of training and seminar to be conducted indicating the requesting party's name on the list of participants.\nLocation: BFAR-NIFTC Office Dormitory: BFAR-NIFTC Km 53 Manila East Road, Sitio Sayoc, Brgy. Tandang Kutyo, Tanay, Rizal",
+            clientFees: "None",
+            agencyActions: [
+              { code: "1.A.1.", text: "Receive the Memorandum or Fisheries Office Order of training and seminar to be conducted indicating the requesting party's name on the list of participants.", time: "~10 mins", person: "Aquaculturist F, National Inland Fisheries Technology Center; Aquaculturist I, National Inland Fisheries Technology Center; Administrative Assistant II, National Inland Fisheries Technology Center" },
+              { code: "1.A.", text: "Receive and approve the request.", time: "~5 mins", person: "Aquaculturist II, National Inland Fisheries Technology Center; Aquaculturist I, National Inland Fisheries Technology Center; Administrative Assistant II, National Inland Fisheries Technology Center" },
+            ],
+          },
+        ],
+      },
+      {
+        num: 2,
+        title: "Receive confirmation",
+        paths: [
+          {
+            label: null,
+            clientAction: "Receive confirmed reservation thru chat, text message or phone call.\nAdministrative Office: BFAR-NIFTC Km 53 Manila East Road, Sitio Sayoc, Brgy. Tandang Kutyo, Tanay, Rizal",
+            clientFees: "None",
+            agencyActions: [
+              { code: "2.", text: "Notify the requesting party on the confirmed reservation thru chat, text message or phone call, then advise them to present the proof of messages with corresponding ID.", time: "~5 minute/s", person: "Aquaculturist I, National Inland Fisheries Technology Center; Administrative Assistant II, National Inland Fisheries Technology Center" },
+            ],
+          },
+        ],
+      },
+      {
+        num: 3,
+        title: "Payment",
+        paths: [
+          {
+            label: null,
+            clientAction: "Pay the required fees and secure acknowledgement receipt\nLocation: Administrative Office: BFAR-NIFTC Km 53 Manila East Road, Sitio Sayoc, Brgy. Tandang Kutyo, Tanay, Rizal",
+            clientFees: "Standard Fees Breakdown:\nDormitory Fee: PHP 100\nTotal: PHP 100",
+            agencyActions: [
+              { code: "3.", text: "Accept the amount and issue an acknowledgement receipt.", time: "~10 mins", person: "Aquaculturist I, National Inland Fisheries Technology Center; Administrative Assistant II, National Inland Fisheries Technology Center" },
+            ],
+          },
+        ],
+      },
+    ],
     totalTime: {
       columns: [
-        { icon: "bi-person-check", label: "Standard request", value: "3 hour/s, 40 minute/s" },
+        { icon: "bi-person-badge", label: "*If A. For BFAR-NIFTC Staff ()", value: "30 minute/s" },
+        { icon: "bi-building", label: "*If B. For BFAR Central Office, Regional Fisheries Office and National Centers Personnel ()", value: "30 minute/s" },
       ],
     },
     totalFee: {
       columns: [
-        { icon: "bi-person-check", label: "Standard request", value: "None" },
+        { icon: "bi-person-badge", label: "*If A. For BFAR-NIFTC Staff ()", value: "+PHP 100" },
+        { icon: "bi-building", label: "*If B. For BFAR Central Office, Regional Fisheries Office and National Centers Personnel ()", value: "+PHP 100" },
       ],
     },
   },
-  9: {
+
+  // --- 10: OJT (was 9) ---
+  10: {
     title: "Technical Assistance (On-the-Job-Training)",
     description:
       "Technical assistance for On-the-Job Training of students shall involve complete agency immersion in the activities being conducted in the Center especially on Freshwater Aquaculture Management through lectures accompanied by practicum activities.",
@@ -705,59 +575,12 @@ const services = {
       walkIn: [{ label: "1. Client Request Form", note: "(1) Original Copy", source: "Applicant/Client" }],
     },
     steps: [
-      {
-        num: 1,
-        title: "Submit Request",
-        paths: [
-          {
-            label: null,
-            clientAction: "Submit Application Letter and requirements (Waiver and Trainee's Profile/Curriculum Vitae) at:\nAdministrative office: BFAR-NIFTC Km 53 Manila",
-            clientFees: "None",
-            agencyActions: [
-              { code: "1.", text: "Receive application letter with its requirements.", time: "~5 mins", person: "Aquaculturist I, National Inland Fisheries Technology Center; Assistant II, National Inland Fisheries Technology Center" },
-            ],
-          },
-        ],
-      },
-      {
-        num: 2,
-        title: "Interview",
-        paths: [
-          {
-            label: null,
-            clientAction: "Report to office for On-the-Job Training Interview/briefing at:\nOffice of the Center Chief: BFAR-NIFTC Km 53 Manila",
-            clientFees: "None",
-            agencyActions: [
-              { code: "2.", text: "Accept trainee, conduct initial interview and briefing.", time: "~10 mins", person: "Chief Aquaculturist, National Inland Fisheries Technology Center; Administrative Assistant II, National Inland Fisheries Technology Center" },
-            ],
-          },
-        ],
-      },
-      {
-        num: 3,
-        title: "Orientation",
-        paths: [
-          {
-            label: null,
-            clientAction: "Attend orientation and tour to the center facilities at:\nAll NIFTC Facilities: BFAR-NIFTC Km 53 Manila",
-            clientFees: "None",
-            agencyActions: [
-              { code: "3.", text: "Conduct orientation and tour to the center facilities.", time: "~15 mins", person: "Senior Aquaculturist, National Inland Fisheries Technology Center; Aquaculturist II, National Inland Fisheries Technology Center; Aquaculturist I, National Inland Fisheries Technology Center; Administrative Aide IV, National Inland Fisheries Technology Center; Administrative Assistant II, National Inland Fisheries Technology Center" },
-            ],
-          },
-        ],
-      },
+      { num: 1, title: "Submit Request", paths: [{ label: null, clientAction: "Submit Application Letter and requirements (Waiver and Trainee's Profile/Curriculum Vitae) at:\nAdministrative office: BFAR-NIFTC Km 53 Manila", clientFees: "None", agencyActions: [{ code: "1.", text: "Receive application letter with its requirements.", time: "~5 mins", person: "Aquaculturist I, National Inland Fisheries Technology Center; Assistant II, National Inland Fisheries Technology Center" }] }] },
+      { num: 2, title: "Interview", paths: [{ label: null, clientAction: "Report to office for On-the-Job Training Interview/briefing at:\nOffice of the Center Chief: BFAR-NIFTC Km 53 Manila", clientFees: "None", agencyActions: [{ code: "2.", text: "Accept trainee, conduct initial interview and briefing.", time: "~10 mins", person: "Chief Aquaculturist, National Inland Fisheries Technology Center; Administrative Assistant II, National Inland Fisheries Technology Center" }] }] },
+      { num: 3, title: "Orientation", paths: [{ label: null, clientAction: "Attend orientation and tour to the center facilities at:\nAll NIFTC Facilities: BFAR-NIFTC Km 53 Manila", clientFees: "None", agencyActions: [{ code: "3.", text: "Conduct orientation and tour to the center facilities.", time: "~15 mins", person: "Senior Aquaculturist, National Inland Fisheries Technology Center; Aquaculturist II, National Inland Fisheries Technology Center; Aquaculturist I, National Inland Fisheries Technology Center; Administrative Aide IV, National Inland Fisheries Technology Center; Administrative Assistant II, National Inland Fisheries Technology Center" }] }] },
     ],
-    totalTime: {
-      columns: [
-        { icon: "bi-person-check", label: "Standard Request", value: "30 minute/s" },
-      ],
-    },
-    totalFee: {
-      columns: [
-        { icon: "bi-person-check", label: "Standard request", value: "None" },
-      ],
-    },
+    totalTime: { columns: [{ icon: "bi-person-check", label: "Standard Request", value: "30 minute/s" }] },
+    totalFee: { columns: [{ icon: "bi-person-check", label: "Standard request", value: "None" }] },
   },
 };
 
@@ -867,6 +690,35 @@ export default function ArtaStepDetail({ params }) {
                       <span className="fw-semibold text-body-emphasis">{r.label}</span>
                       <span className="text-muted ms-1" style={{ whiteSpace: 'pre-line' }}>{r.note}</span>
                       <div className="text-muted" style={{ fontSize: '0.65rem' }}>Where to secure: <span className="fw-semibold">{r.source}</span></div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ) : service.requirements.twoColumn ? (
+              <div className="row g-0">
+                <div className="col-12 col-md-6 p-3 border-end-md">
+                  <div className="d-flex align-items-center gap-2 mb-2">
+                    <i className={`bi ${service.requirements.twoColumn.leftIcon} text-primary`}></i>
+                    <span className="fw-bold small">{service.requirements.twoColumn.leftLabel}</span>
+                  </div>
+                  {service.requirements.twoColumn.left.map((r, i) => (
+                    <div key={i} className="small mb-2">
+                      <span className="fw-semibold text-body-emphasis" style={{ whiteSpace: 'pre-line' }}>{r.label}</span>
+                      <span className="text-muted ms-1">{r.note}</span>
+                      {r.source && <div className="text-muted" style={{ fontSize: '0.65rem' }}>Where to secure: <span className="fw-semibold">{r.source}</span></div>}
+                    </div>
+                  ))}
+                </div>
+                <div className="col-12 col-md-6 p-3">
+                  <div className="d-flex align-items-center gap-2 mb-2">
+                    <i className={`bi ${service.requirements.twoColumn.rightIcon} text-primary`}></i>
+                    <span className="fw-bold small">{service.requirements.twoColumn.rightLabel}</span>
+                  </div>
+                  {service.requirements.twoColumn.right.map((r, i) => (
+                    <div key={i} className="small mb-2">
+                      <span className="fw-semibold text-body-emphasis" style={{ whiteSpace: 'pre-line' }}>{r.label}</span>
+                      <span className="text-muted ms-1">{r.note}</span>
+                      {r.source && <div className="text-muted" style={{ fontSize: '0.65rem' }}>Where to secure: <span className="fw-semibold">{r.source}</span></div>}
                     </div>
                   ))}
                 </div>

@@ -1,4 +1,4 @@
-// app/arta-steps/page.js
+// app/00arta-steps/page.js
 'use client';
 
 import Navbar from '../components/Navbar';
@@ -7,15 +7,16 @@ import Link from 'next/link';
 export default function ArtaStepsPage() {
   // Static array matching the ARTA & Citizen's Charter directives shown in the UI images
   const artaSteps = [
-    { id: 1, text: "Processing of Request for Distribution of Fish Seed FREE" },
-    { id: 2, text: "Processing of Request for Distribution of Fish Seed PAYMENT" },
-    { id: 3, text: "Processing of Request for Distribution of IEC Materials" },
-    { id: 4, text: "Processing of Request for Technical Assistance/Advisory for Walk-in Clients" },
-    { id: 5, text: "Processing of Request for Fish Farmers Seminar" },
-    { id: 6, text: "Processing of Request for Technical Assistance for Site Visit/Ocular Inspection" },
-    { id: 7, text: "Processing of Request for Technical Assistance for On-the-Job Training" },
-    { id: 8, text: "Processing of Request for Regular / National Training" },
-    { id: 9, text: "Processing of Request for FISHYALAN / Agri-Fisheries Project" }
+    { id: 1,  text: "Processing of Request for Distribution of Fish Seed (Fry, Fingerlings, Broodstock, Post-Larvae) for Free" },
+    { id: 2,  text: "Processing of Request for Distribution of Fish Seed (Fry, Fingerlings, Broodstock, Post-Larvae) for Payment" },
+    { id: 3,  text: "Processing of Request for Technical Assistance, Distribution of Information, Education and Communication (IEC) Materials" },
+    { id: 4,  text: "Processing of Request for Training Request by Clients" },
+    { id: 5,  text: "Processing of Request for Technical Assistance for FishFarmer's Seminar" },
+    { id: 6,  text: "Processing of Request for Technical Assistance for on-Site Visit/Inspection" },
+    { id: 7,  text: "Processing of Request for Technical Assistance for Inquiries (Through Email and Walk-in)" },
+    { id: 8,  text: "Processing of Request for Technical Assistance for Inquiries (Through SMS, Phone call and Facebook Messenger)" },
+    { id: 9,  text: "Processing of Request for Accommodation at BFAR-NIFTC Dormitory" },
+    { id: 10, text: "Technical Assistance (On-the-Job-Training)" },
   ];
 
   // Simulated Text-to-Speech handler for the "Listen" accessibility feature
