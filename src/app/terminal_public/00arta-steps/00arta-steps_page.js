@@ -1,7 +1,7 @@
 // app/00arta-steps/page.js
 'use client';
 
-import Navbar from '../components/Navbar';
+import Navbar from '@/app/components/Navbar';
 import Link from 'next/link';
 
 export default function ArtaStepsPage() {
@@ -53,7 +53,7 @@ export default function ArtaStepsPage() {
               </div>
               
               {/* Top corner cancel/back navigation shortcut */}
-              <Link href="/" className="btn btn-close btn-close-white bg-opacity-20 p-2 rounded-circle shadow-sm" aria-label="Close and return home"></Link>
+              <Link href="/terminal_public" className="btn btn-close btn-close-white bg-opacity-20 p-2 rounded-circle shadow-sm" aria-label="Close and return home"></Link>
             </div>
           </div>
 
@@ -112,7 +112,7 @@ export default function ArtaStepsPage() {
 
           {/* Footer controls providing safe landing escape points */}
           <div className="card-footer p-3 bg-body-tertiary border-top d-flex justify-content-end gap-2">
-            <Link href="/" className="btn btn-primary bg-gradient px-4 py-2 rounded-3 fw-bold btn-sm shadow-sm">
+            <Link href="/terminal_public/" className="btn btn-primary bg-gradient px-4 py-2 rounded-3 fw-bold btn-sm shadow-sm">
               Close
             </Link>
           </div>

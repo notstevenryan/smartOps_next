@@ -1,8 +1,8 @@
-// app/profile/page.js
+// app/terminal_public/02profile/page.js
 'use client';
 
 import { useState } from 'react';
-import Navbar from '../components/Navbar';
+import Navbar from '@/app/components/Navbar';
 import Link from 'next/link';
 
 export default function ClientProfilePage() {
@@ -217,10 +217,10 @@ export default function ClientProfilePage() {
 
           {/* Action Row Footer */}
           <div className="card-footer p-3 bg-body-tertiary border-top d-flex justify-content-between px-4">
-            <Link href="/services" className="btn btn-outline-secondary btn-sm px-4 py-2 rounded-pill fw-bold">
+            <Link href="/terminal_public/01services" className="btn btn-outline-secondary btn-sm px-4 py-2 rounded-pill fw-bold">
               <i className="bi bi-arrow-left me-1"></i> Back
             </Link>
-            <Link href="/03charter" className="btn btn-primary btn-sm px-4 py-2 rounded-pill fw-bold bg-gradient">
+            <Link href="/terminal_public/03charter" className="btn btn-primary btn-sm px-4 py-2 rounded-pill fw-bold bg-gradient">
               Continue <i className="bi bi-arrow-right ms-1"></i>
             </Link>
           </div>

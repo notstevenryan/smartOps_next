@@ -1,9 +1,9 @@
-// app/01services/page.js
+// app/terminal_public/01services/page.js
 'use client';
 
 import { useState } from 'react';
-import Navbar from '../components/Navbar';
 import Link from 'next/link';
+import Navbar from '@/app/components/Navbar';
 
 export default function ServicesPage() {
   // Application State
@@ -100,8 +100,11 @@ export default function ServicesPage() {
   };
 
   return (
+    <>
+      <Navbar />
+
     <div className="min-vh-100 bg-light d-flex flex-column pb-5">
-      
+
       {/* --- REPUBLIKANG PILIPINAS OFFICIAL HEADER --- */}
       <div className="bg-white border-bottom shadow-sm py-3 px-4 position-relative overflow-hidden">
         {/* Decorative Top Accent Banner bar */}
@@ -110,13 +113,13 @@ export default function ServicesPage() {
           <div className="bg-warning flex-grow-1" style={{ width: '45%' }}></div>
           <div className="bg-primary flex-grow-1" style={{ width: '40%' }}></div>
         </div>
-        
+
         <div className="container-fluid d-flex align-items-center justify-content-between mt-1">
           <div className="d-flex align-items-center gap-3">
             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Coat_of_arms_of_the_Philippines.svg/1200px-Coat_of_arms_of_the_Philippines.svg.png" alt="Bagong Pilipinas" style={{ height: '65px', width: 'auto' }} />
             <img src="https://upload.wikimedia.org/wikipedia/commons/e/ef/Department_of_Agriculture_%28DA%29_PH.svg" alt="Department of Agriculture" style={{ height: '55px', width: 'auto' }} />
           </div>
-          
+
           <div className="text-center flex-grow-1 mx-3">
             <p className="m-0 text-secondary fw-semibold small" style={{ fontSize: '0.75rem', letterSpacing: '0.5px' }}>Republic of the Philippines</p>
             <p className="m-0 text-secondary fw-semibold small" style={{ fontSize: '0.75rem' }}>Department of Agriculture</p>
@@ -133,7 +136,7 @@ export default function ServicesPage() {
       </div>
 
       <div className="container my-4 flex-grow-1">
-        
+
         {/* --- STEP PROGRESS COMPONENT --- */}
         <div className="d-flex justify-content-end mb-4">
           <div className="bg-white px-2 py-1 rounded-pill d-inline-flex gap-1 border shadow-sm align-items-center" style={{ fontSize: '0.68rem' }}>
@@ -158,7 +161,7 @@ export default function ServicesPage() {
                 <p className="m-0 opacity-75" style={{ fontSize: '0.78rem' }}>Tap each service you need. Use the QR icon to share or print.</p>
               </div>
             </div>
-            <button 
+            <button
               onClick={(e) => handleAudioListen("Technical Assistance Requested. Tap each service you need.", e)}
               className="btn btn-outline-light btn-sm rounded-pill px-3 d-flex align-items-center gap-1"
               style={{ fontSize: '0.8rem' }}
@@ -173,11 +176,9 @@ export default function ServicesPage() {
                 const isSelected = selectedService === item.id;
                 return (
                   <div className="col-12 col-md-6" key={item.id}>
-                    <div 
+                    <div
                       onClick={() => handleSelectService(item.id)}
-                      className={`card h-100 border rounded-4 p-3 position-relative ${
-                        isSelected ? 'border-success bg-success bg-opacity-10 shadow-sm' : item.colorClass
-                      }`}
+                      className={`card h-100 border rounded-4 p-3 position-relative ${isSelected ? 'border-success bg-success bg-opacity-10 shadow-sm' : item.colorClass}`}
                       style={{ cursor: 'pointer', transition: 'all 0.15s ease-in-out' }}
                     >
                       <div className="d-flex align-items-start justify-content-between gap-2">
@@ -191,8 +192,8 @@ export default function ServicesPage() {
                         </div>
 
                         {/* Listen Row Sub-action */}
-                        <button 
-                          onClick={(e) => handleAudioListen(item.title, e)} 
+                        <button
+                          onClick={(e) => handleAudioListen(item.title, e)}
                           className="btn btn-outline-primary btn-sm rounded-pill px-2 py-0.5 d-flex align-items-center gap-1 flex-shrink-0"
                           style={{ fontSize: '0.68rem' }}
                         >
@@ -211,13 +212,13 @@ export default function ServicesPage() {
                             Tap to select
                           </button>
                         )}
-                        
-                        <button 
+
+                        <button
                           onClick={(e) => {
                             e.stopPropagation();
                             setActiveQrService(item);
-                          }}
-                          className="btn btn-white border shadow-sm btn-sm rounded-2 px-2 py-1 text-muted d-flex align-items-center gap-1" 
+                          } }
+                          className="btn btn-white border shadow-sm btn-sm rounded-2 px-2 py-1 text-muted d-flex align-items-center gap-1"
                           style={{ fontSize: '0.72rem' }}
                         >
                           <i className="bi bi-qr-code"></i> QR
@@ -234,7 +235,7 @@ export default function ServicesPage() {
                             <i className="bi bi-keyboard text-muted ms-1" style={{ fontSize: '0.75rem' }}></i>
                             <span className="text-muted" style={{ fontSize: '0.65rem' }}>or type below</span>
                           </div>
-                          <textarea 
+                          <textarea
                             rows="2"
                             className="form-control form-control-sm text-dark bg-white border border-secondary-subtle"
                             placeholder={`Enter details for ${item.shortTitle}`}
@@ -257,8 +258,7 @@ export default function ServicesPage() {
             <span className="text-muted fw-normal" style={{ fontSize: '0.8rem' }}>
               {selectedService ? '1 service(s) selected' : 'Tap one or more services above'}
             </span>
-            <Link 
-              href="/02profile" 
+            <Link href="/terminal_public/02profile"
               className={`btn px-4 py-1.5 rounded-2 fw-semibold text-white ${selectedService ? 'btn-primary' : 'btn-secondary disabled opacity-50'}`}
               style={{ fontSize: '0.82rem' }}
             >
@@ -280,7 +280,7 @@ export default function ServicesPage() {
               <div className="modal-body text-center pt-0 px-3">
                 <span className="text-primary text-uppercase fw-bold tracking-wider d-block mb-1" style={{ fontSize: '0.62rem', letterSpacing: '0.5px' }}>Scan to Request This Service</span>
                 <h5 className="fw-bold text-dark mb-3 px-1" style={{ fontSize: '0.95rem', lineHeight: '1.4' }}>{activeQrService.shortTitle}</h5>
-                
+
                 {/* Hardware Barcode Simulated Container block */}
                 <div className="p-2 d-inline-block mb-3">
                   <div className="d-flex align-items-center justify-content-center bg-white" style={{ width: '170px', height: '170px' }}>
@@ -300,6 +300,6 @@ export default function ServicesPage() {
           </div>
         </div>
       )}
-    </div>
+    </div></>
   );
 }

@@ -1,7 +1,8 @@
-// app/04survey/page.js
+// app/terminal_public/04survey/page.js
 'use client';
 
 import { useState } from 'react';
+import Navbar from '@/app/components/Navbar';
 import Link from 'next/link';
 
 export default function SurveyPage() {
@@ -69,6 +70,9 @@ export default function SurveyPage() {
   // --- RENDERING BLOCK 3: THANK YOU SCREEN ---
   if (viewState === 'thanks') {
     return (
+      <>
+        <Navbar />
+
       <div className="min-vh-100 bg-light d-flex flex-column pb-5">
         {/* REPUBLIKANG PILIPINAS OFFICIAL HEADER */}
         <div className="bg-white border-bottom shadow-sm py-3 px-4 position-relative overflow-hidden">
@@ -109,12 +113,15 @@ export default function SurveyPage() {
           </div>
         </div>
       </div>
+    </>
     );
   }
 
   // --- RENDERING BLOCK 2: PREVIEW ANSWERS (CONFIRMATION) VIEW ---
   if (viewState === 'review') {
     return (
+          <>
+            <Navbar />
       <div className="min-vh-100 bg-light d-flex flex-column pb-5">
         {/* REPUBLIKANG PILIPINAS OFFICIAL HEADER */}
         <div className="bg-white border-bottom shadow-sm py-3 px-4 position-relative overflow-hidden">
@@ -292,11 +299,15 @@ export default function SurveyPage() {
           </div>
         </div>
       </div>
+    </>
     );
   }
 
   // --- RENDERING BLOCK 1: MAIN EVALUATION MATRIX GRID QUESTION VIEW ---
   return (
+    <>
+      <Navbar />
+
     <div className="min-vh-100 bg-light d-flex flex-column pb-5">
       {/* REPUBLIKANG PILIPINAS OFFICIAL HEADER */}
       <div className="bg-white border-bottom shadow-sm py-3 px-4 position-relative overflow-hidden">
@@ -423,7 +434,7 @@ export default function SurveyPage() {
           </div>
 
           <div className="card-footer p-3 bg-white border-top d-flex justify-content-between align-items-center px-4">
-            <Link href="/03charter" className="btn btn-outline-secondary border shadow-sm px-4 py-1.5 rounded-2 fw-semibold" style={{ fontSize: '0.82rem' }}>
+            <Link href="/terminal_public/03charter" className="btn btn-outline-secondary border shadow-sm px-4 py-1.5 rounded-2 fw-semibold" style={{ fontSize: '0.82rem' }}>
               <i className="bi bi-arrow-left"></i> Back
             </Link>
             <div className="d-flex gap-2">
@@ -439,5 +450,6 @@ export default function SurveyPage() {
 
       </div>
     </div>
+    </>
   );
 }

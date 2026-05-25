@@ -2,7 +2,7 @@
 
 import { use } from 'react';
 import Link from 'next/link';
-import Navbar from '../../components/Navbar';
+import Navbar from '@/app/components/Navbar';
 
 // --- DATA ---
 // Each service maps to its step id from the list page
