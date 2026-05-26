@@ -1,260 +1,284 @@
-// app/terminal_admin/service_analytics/page.js
 'use client';
 
-import React, { useState } from 'react';
-import { 
-  BarChart, Bar, 
-  PieChart, Pie, Cell, 
-  XAxis, YAxis, CartesianGrid, 
-  Tooltip, Legend, ResponsiveContainer 
-} from 'recharts';
+import { use } from 'react';
+import Link from 'next/link';
+import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer, BarChart, Bar, XAxis, YAxis, CartesianGrid } from 'recharts';
 
-export default function ServiceChartsDashboard() {
-  // Navigation Controller representing the three main dataset visibility layers
-  const [activeTab, setActiveTab] = useState('service-detail'); // 'service-detail' | 'internal' | 'external'
+export const SERVICE_REGISTRY = [
+  { id: 1,  label: 'Fish Seed (Free)',       icon: 'bi-water',         color: '#0d6efd', respondents: 150 },
+  { id: 2,  label: 'Fish Seed (Payment)',    icon: 'bi-cash-coin',     color: '#fd7e14', respondents: 150 },
+  { id: 3,  label: 'IEC Materials',          icon: 'bi-book',          color: '#6f42c1', respondents: 50  },
+  { id: 4,  label: 'Training Request',       icon: 'bi-mortarboard',   color: '#d63384', respondents: 0   },
+  { id: 5,  label: "Fish Farmers' Seminar",  icon: 'bi-people',        color: '#ffc107', respondents: 46  },
+  { id: 6,  label: 'Email & Walk-in',        icon: 'bi-envelope-open', color: '#0dcaf0', respondents: 0   },
+  { id: 7,  label: 'Site Visit/Inspection',  icon: 'bi-truck',         color: '#6610f2', respondents: 60  },
+  { id: 8,  label: 'SMS, Call & Facebook',   icon: 'bi-chat-dots',     color: '#20c997', respondents: 0   },
+  { id: 9,  label: 'Dormitory',              icon: 'bi-house-door',    color: '#198754', respondents: 0   },
+  { id: 10, label: 'On-the-Job Training',    icon: 'bi-tools',         color: '#dc3545', respondents: 50  },
+];
 
-  // Global theme-adaptive color palettes for rendering presentation data shapes
-  const PIE_COLORS = ['#0d6efd', '#fd7e14', '#198754', '#6f42c1', '#dc3545'];
-  const AGE_BAR_COLOR = '#0dcaf0';
+// --- STATIC MOCK DATA ---
+const MOCK_DATA = {
+  overall: {
+    avgRating: 4.99,
+    sex: [{ name: 'Male', value: 88, color: '#0d6efd' }, { name: 'Female', value: 62, color: '#60a5fa' }],
+    clientType: [
+      { name: 'General Public', value: 70, color: '#0d6efd' },
+      { name: 'Business/Org',   value: 50, color: '#3b82f6' },
+      { name: "Gov't Employee", value: 30, color: '#93c5fd' },
+    ],
+    ageGroup: [
+      { age: 'Below 18', count: 10 },
+      { age: '18-33',    count: 55 },
+      { age: '33-59',    count: 62 },
+      { age: '60 & above', count: 23 },
+    ],
+    criteria: [
+      { label: 'Responsiveness',     score: 4.99 },
+      { label: 'Reliability',        score: 4.99 },
+      { label: 'Access & Facilities',score: 4.99 },
+      { label: 'Communication',      score: 4.99 },
+      { label: 'Costs',              score: 4.90 },
+      { label: 'Integrity',          score: 4.99 },
+      { label: 'Assurance',          score: 4.99 },
+      { label: 'Outcome',            score: 4.99 },
+    ],
+  },
+  internal: {
+    count: 130,
+    avgRating: 4.99,
+    sex: [{ name: 'Male', value: 70, color: '#0d6efd' }, { name: 'Female', value: 60, color: '#60a5fa' }],
+    clientType: [{ name: 'Business/Org', value: 120, color: '#0d6efd' }],
+    ageGroup: [
+      { age: 'Below 18', count: 5  },
+      { age: '18-33',    count: 40 },
+      { age: '33-59',    count: 60 },
+      { age: '60 & above', count: 25 },
+    ],
+    criteria: [
+      { label: 'Responsiveness',     score: 4.99 },
+      { label: 'Reliability',        score: 4.99 },
+      { label: 'Access & Facilities',score: 4.99 },
+      { label: 'Communication',      score: 4.89 },
+      { label: 'Costs',              score: 4.99 },
+      { label: 'Integrity',          score: 4.99 },
+      { label: 'Assurance',          score: 4.99 },
+      { label: 'Outcome',            score: 4.99 },
+    ],
+  },
+  external: {
+    count: 20,
+    avgRating: 4.99,
+    sex: [{ name: 'Male', value: 18, color: '#0d6efd' }, { name: 'Female', value: 12, color: '#60a5fa' }],
+    clientType: [
+      { name: 'General Public',  value: 28, color: '#0d6efd' },
+      { name: "Gov't Employee",  value: 13, color: '#93c5fd' },
+    ],
+    ageGroup: [
+      { age: 'Below 18', count: 2  },
+      { age: '18-33',    count: 15 },
+      { age: '33-59',    count: 18 },
+      { age: '60 & above', count: 5  },
+    ],
+    criteria: [
+      { label: 'Responsiveness',     score: 4.99 },
+      { label: 'Reliability',        score: 4.99 },
+      { label: 'Access & Facilities',score: 4.89 },
+      { label: 'Communication',      score: 4.99 },
+      { label: 'Costs',              score: 4.99 },
+      { label: 'Integrity',          score: 4.99 },
+      { label: 'Assurance',          score: 4.99 },
+      { label: 'Outcome',            score: 4.89 },
+    ],
+  },
+};
 
-  // --- COMPREHENSIVE PRESENTATION ANALYTICS DATABASE POOLS ---
-  const tabDataPools = {
-    'service-detail': {
-      title: 'Service Detail Analytics Matrix',
-      subtitle: 'Aggregated metrics tracking cross-service distribution channels.',
-      sexData: [
-        { name: 'Male', value: 745 },
-        { name: 'Female', value: 612 }
-      ],
-      clientTypeData: [
-        { name: 'Fisherfolk', value: 580 },
-        { name: 'Pond Operators', value: 390 },
-        { name: 'Cooperatives', value: 210 },
-        { name: 'Academe', value: 177 }
-      ],
-      ageData: [
-        { range: '18-29', count: 240 },
-        { range: '30-44', count: 480 },
-        { range: '45-59', count: 410 },
-        { range: '60+', count: 227 }
-      ],
-      criteriaScores: [
-        { criterion: 'Responsiveness (SQD1)', percentage: 94 },
-        { criterion: 'Reliability (SQD2)', percentage: 91 },
-        { criterion: 'Access & Facilities (SQD3)', percentage: 88 },
-        { criterion: 'Communication (SQD4)', percentage: 96 },
-        { criterion: 'Integrity (SQD7)', percentage: 98 }
-      ]
-    },
-    'internal': {
-      title: 'Internal Client Analytics Matrix',
-      subtitle: 'Operational charts isolating cross-bureau department processing pipelines.',
-      sexData: [
-        { name: 'Male', value: 120 },
-        { name: 'Female', value: 145 }
-      ],
-      clientTypeData: [
-        { name: 'Research Division', value: 90 },
-        { name: 'Production Units', value: 110 },
-        { name: 'Extension Teams', value: 65 }
-      ],
-      ageData: [
-        { range: '18-29', count: 85 },
-        { range: '30-44', count: 110 },
-        { range: '45-59', count: 55 },
-        { range: '60+', count: 15 }
-      ],
-      criteriaScores: [
-        { criterion: 'Responsiveness (SQD1)', percentage: 97 },
-        { criterion: 'Reliability (SQD2)', percentage: 95 },
-        { criterion: 'Access & Facilities (SQD3)', percentage: 92 },
-        { criterion: 'Communication (SQD4)', percentage: 94 },
-        { criterion: 'Integrity (SQD7)', percentage: 99 }
-      ]
-    },
-    'external': {
-      title: 'External Client Analytics Matrix',
-      subtitle: 'Demographics tracking external public fisherfolk, farm groups, and public sectors.',
-      sexData: [
-        { name: 'Male', value: 625 },
-        { name: 'Female', value: 467 }
-      ],
-      clientTypeData: [
-        { name: 'Individual Fishers', value: 490 },
-        { name: 'LGU Cooperatives', value: 325 },
-        { name: 'Commercial Scale', value: 277 }
-      ],
-      ageData: [
-        { range: '18-29', count: 155 },
-        { range: '30-44', count: 370 },
-        { range: '45-59', count: 355 },
-        { range: '60+', count: 212 }
-      ],
-      criteriaScores: [
-        { criterion: 'Responsiveness (SQD1)', percentage: 93 },
-        { criterion: 'Reliability (SQD2)', percentage: 90 },
-        { criterion: 'Access & Facilities (SQD3)', percentage: 86 },
-        { criterion: 'Communication (SQD4)', percentage: 97 },
-        { criterion: 'Integrity (SQD7)', percentage: 98 }
-      ]
-    }
-  };
+// --- SUB-COMPONENTS ---
 
-  // Resolve the active state scope
-  const activeDataset = tabDataPools[activeTab];
-
+function AvgRatingBadge({ rating }) {
   return (
-    <div className="d-flex flex-column gap-2 animate-fade-in">
-      
-      {/* HEADER CONTROLS VIEW WITH SEGMENTED SWITCH PANEL */}
-      <div className="d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center gap-3 border-bottom pb-3">
-        <div>
-          <h2 className="h4 fw-black text-body-emphasis m-0" style={{ fontWeight: '800' }}>{activeDataset.title}</h2>
-          <p className="text-muted m-0" style={{ fontSize: '0.8rem' }}>{activeDataset.subtitle}</p>
+    <div className="d-flex align-items-center gap-1 bg-body-tertiary rounded-3 px-3 py-2 border">
+      <i className="bi bi-star-fill text-warning"></i>
+      <div>
+        <div className="text-muted" style={{ fontSize: '0.6rem', lineHeight: 1 }}>Avg Rating</div>
+        <div className="fw-black text-body-emphasis" style={{ fontSize: '0.9rem', lineHeight: 1 }}>
+          {rating} / 5.00
         </div>
-        
-        {/* TAB GROUPING SELECTOR CLUSTER */}
-        <div className="p-1 rounded-3 bg-body-tertiary border d-inline-flex gap-1">
-          {[
-            { id: 'service-detail', label: 'Service Detail' },
-            { id: 'internal', label: 'Internal Client' },
-            { id: 'external', label: 'External Client' }
-          ].map(tab => (
-            <button
-              key={tab.id}
-              onClick={() => setActiveTab(tab.id)}
-              className={`btn btn-sm rounded-2 px-3 fw-bold transition-all ${
-                activeTab === tab.id ? 'btn-primary shadow-xs text-white' : 'btn-link text-secondary text-decoration-none'
-              }`}
-              style={{ fontSize: '0.78rem' }}
-            >
-              {tab.label}
-            </button>
-          ))}
-        </div>
-      </div>
-
-      {/* PRIMARY DATA GRID: THE FOUR TARGET GRAPH SHAPES */}
-      <div className="row g-4">
-        
-        {/* 1. DONUT CHART: SEX SPLIT MATRIX */}
-        <div className="col-12 col-md-6 col-xl-3">
-          <div className="card border border-secondary-subtle bg-body rounded-4 p-3 shadow-sm h-100">
-            <div className="mb-2">
-              <span className="badge bg-primary bg-opacity-10 text-primary font-monospace text-uppercase" style={{ fontSize: '0.55rem' }}>Demographics</span>
-              <h6 className="fw-bold text-body-emphasis m-0 mt-0.5" style={{ fontSize: '0.82rem' }}>Sex Distribution</h6>
-            </div>
-            <div className="d-flex align-items-center justify-content-center" style={{ width: '100%', height: 200 }}>
-              <ResponsiveContainer width="100%" height="100%">
-                <PieChart>
-                  <Pie
-                    data={activeDataset.sexData}
-                    cx="50%"
-                    cy="50%"
-                    innerRadius={50}
-                    outerRadius={70}
-                    paddingAngle={3}
-                    dataKey="value"
-                  >
-                    {activeDataset.sexData.map((entry, idx) => (
-                      <Cell key={`sex-cell-${idx}`} fill={PIE_COLORS[idx % PIE_COLORS.length]} />
-                    ))}
-                  </Pie>
-                  <Tooltip contentStyle={{ background: 'var(--bs-body-bg)', color: 'var(--bs-body-color)', fontSize: '0.75rem', borderRadius: '8px' }} />
-                  <Legend wrapperStyle={{ fontSize: '0.7rem' }} verticalAlign="bottom" />
-                </PieChart>
-              </ResponsiveContainer>
-            </div>
-          </div>
-        </div>
-
-        {/* 2. DONUT CHART: CLIENT CLASSIFICATION COHORT */}
-        <div className="col-12 col-md-6 col-xl-3">
-          <div className="card border border-secondary-subtle bg-body rounded-4 p-3 shadow-sm h-100">
-            <div className="mb-2">
-              <span className="badge bg-success bg-opacity-10 text-success font-monospace text-uppercase" style={{ fontSize: '0.55rem' }}>Sector Class</span>
-              <h6 className="fw-bold text-body-emphasis m-0 mt-0.5" style={{ fontSize: '0.82rem' }}>Client Type Breakdown</h6>
-            </div>
-            <div className="d-flex align-items-center justify-content-center" style={{ width: '100%', height: 200 }}>
-              <ResponsiveContainer width="100%" height="100%">
-                <PieChart>
-                  <Pie
-                    data={activeDataset.clientTypeData}
-                    cx="50%"
-                    cy="50%"
-                    innerRadius={50}
-                    outerRadius={70}
-                    paddingAngle={3}
-                    dataKey="value"
-                  >
-                    {activeDataset.clientTypeData.map((entry, idx) => (
-                      <Cell key={`type-cell-${idx}`} fill={PIE_COLORS[(idx + 2) % PIE_COLORS.length]} />
-                    ))}
-                  </Pie>
-                  <Tooltip contentStyle={{ background: 'var(--bs-body-bg)', color: 'var(--bs-body-color)', fontSize: '0.75rem', borderRadius: '8px' }} />
-                  <Legend wrapperStyle={{ fontSize: '0.65rem' }} verticalAlign="bottom" />
-                </PieChart>
-              </ResponsiveContainer>
-            </div>
-          </div>
-        </div>
-
-        {/* 3. BAR CHART: AGE GROUP DISTRIBUTIONS */}
-        <div className="col-12 col-md-6 col-xl-3">
-          <div className="card border border-secondary-subtle bg-body rounded-4 p-3 shadow-sm h-100">
-            <div className="mb-2">
-              <span className="badge bg-info bg-opacity-10 text-info font-monospace text-uppercase" style={{ fontSize: '0.55rem' }}>Generations</span>
-              <h6 className="fw-bold text-body-emphasis m-0 mt-0.5" style={{ fontSize: '0.82rem' }}>Age Group Metrics</h6>
-            </div>
-            <div style={{ width: '100%', height: 200 }}>
-              <ResponsiveContainer width="100%" height="100%">
-                <BarChart data={activeDataset.ageData} margin={{ top: 10, right: 10, left: -25, bottom: 0 }}>
-                  <CartesianGrid strokeDasharray="3 3" opacity={0.1} />
-                  <XAxis dataKey="range" stroke="currentColor" opacity={0.4} style={{ fontSize: '0.68rem' }} />
-                  <YAxis stroke="currentColor" opacity={0.4} style={{ fontSize: '0.68rem' }} />
-                  <Tooltip contentStyle={{ background: 'var(--bs-body-bg)', color: 'var(--bs-body-color)', fontSize: '0.75rem', borderRadius: '8px' }} />
-                  <Bar dataKey="count" fill={AGE_BAR_COLOR} radius={[4, 4, 0, 0]} />
-                </BarChart>
-              </ResponsiveContainer>
-            </div>
-          </div>
-        </div>
-
-        {/* 4. LINEAR BAR GRAPH: CRITERIA CORE SCORES (LINEAR PROGRESSION) */}
-        <div className="col-12 col-md-6 col-xl-3">
-          <div className="card border border-secondary-subtle bg-body rounded-4 p-3 shadow-sm h-100">
-            <div className="mb-3">
-              <span className="badge bg-warning bg-opacity-10 text-warning font-monospace text-uppercase" style={{ fontSize: '0.55rem' }}>ARTa Matrix</span>
-              <h6 className="fw-bold text-body-emphasis m-0 mt-0.5" style={{ fontSize: '0.82rem' }}>Criteria Quality Scores</h6>
-            </div>
-            
-            {/* Native highly clean responsive linear progress tracks to match teammate design blueprints */}
-            <div className="d-flex flex-column gap-2.5 overflow-auto pr-1">
-              {activeDataset.criteriaScores.map((item, idx) => (
-                <div key={idx}>
-                  <div className="d-flex justify-content-between align-items-center mb-0.5" style={{ fontSize: '0.68rem' }}>
-                    <span className="text-body fw-medium text-truncate pe-2">{item.criterion}</span>
-                    <span className="font-monospace fw-bold text-primary">{item.percentage}%</span>
-                  </div>
-                  <div className="progress rounded-pill shadow-xs" style={{ height: '6px', background: 'var(--bs-secondary-bg)' }}>
-                    <div 
-                      className="progress-bar bg-primary rounded-pill bg-gradient" 
-                      role="progressbar" 
-                      style={{ width: `${item.percentage}%` }}
-                      aria-valuenow={item.percentage} 
-                      aria-valuemin="0" 
-                      aria-valuemax="100"
-                    ></div>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-          </div>
-        </div>
-
       </div>
     </div>
+  );
+}
 
+function SexDonut({ data }) {
+  return (
+    <div>
+      <div className="fw-bold text-body-secondary mb-2 text-center" style={{ fontSize: '0.75rem' }}>Sex</div>
+      <ResponsiveContainer width="100%" height={110}>
+        <PieChart>
+          <Pie data={data} cx="50%" cy="50%" innerRadius={30} outerRadius={50} dataKey="value" stroke="none">
+            {data.map((d, i) => <Cell key={i} fill={d.color} />)}
+          </Pie>
+          <Tooltip formatter={(v, n) => [v, n]} contentStyle={{ fontSize: 11 }} />
+        </PieChart>
+      </ResponsiveContainer>
+      <div className="d-flex justify-content-center gap-3 flex-wrap mt-1">
+        {data.map((d, i) => (
+          <div key={i} className="d-flex align-items-center gap-1">
+            <div className="rounded-circle" style={{ width: 8, height: 8, background: d.color }} />
+            <span style={{ fontSize: '0.65rem' }} className="text-muted fw-semibold">{d.value} {d.name}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function ClientTypeDonut({ data }) {
+  return (
+    <div>
+      <div className="fw-bold text-body-secondary mb-2 text-center" style={{ fontSize: '0.75rem' }}>Client Type</div>
+      <ResponsiveContainer width="100%" height={110}>
+        <PieChart>
+          <Pie data={data} cx="50%" cy="50%" innerRadius={30} outerRadius={50} dataKey="value" stroke="none">
+            {data.map((d, i) => <Cell key={i} fill={d.color} />)}
+          </Pie>
+          <Tooltip formatter={(v, n) => [v, n]} contentStyle={{ fontSize: 11 }} />
+        </PieChart>
+      </ResponsiveContainer>
+      <div className="d-flex flex-column align-items-center gap-1 mt-1">
+        {data.map((d, i) => (
+          <div key={i} className="d-flex align-items-center gap-1">
+            <div className="rounded-circle" style={{ width: 8, height: 8, background: d.color }} />
+            <span style={{ fontSize: '0.65rem' }} className="text-muted fw-semibold">{d.name}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function AgeGroupBar({ data, color = '#0d6efd' }) {
+  return (
+    <div>
+      <div className="fw-bold text-body-secondary mb-2 text-center" style={{ fontSize: '0.75rem' }}>Age Group</div>
+      <ResponsiveContainer width="100%" height={120}>
+        <BarChart data={data} margin={{ top: 4, right: 4, left: -20, bottom: 0 }}>
+          <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" vertical={false} />
+          <XAxis dataKey="age" tick={{ fontSize: 9 }} axisLine={false} tickLine={false} />
+          <YAxis tick={{ fontSize: 9 }} axisLine={false} tickLine={false} />
+          <Tooltip contentStyle={{ fontSize: 11 }} />
+          <Bar dataKey="count" fill={color} radius={[3, 3, 0, 0]} />
+        </BarChart>
+      </ResponsiveContainer>
+    </div>
+  );
+}
+
+function CriteriaScores({ data }) {
+  return (
+    <div>
+      <div className="fw-bold text-body-secondary mb-2" style={{ fontSize: '0.75rem' }}>Criteria Scores</div>
+      <div className="d-flex flex-column gap-1">
+        {data.map((c, i) => (
+          <div key={i} className="d-flex align-items-center justify-content-between gap-2">
+            <span className="text-muted" style={{ fontSize: '0.68rem', minWidth: '110px' }}>{c.label}</span>
+            <div className="flex-grow-1 bg-body-tertiary rounded-pill" style={{ height: 6 }}>
+              <div className="bg-primary rounded-pill" style={{ width: `${(c.score / 5) * 100}%`, height: '100%' }} />
+            </div>
+            <span className="fw-bold text-body-emphasis" style={{ fontSize: '0.7rem', minWidth: '30px', textAlign: 'right' }}>{c.score}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function ClientCard({ title, data, serviceColor }) {
+  return (
+    <div className="card border-0 shadow-sm rounded-4 p-4 flex-fill" style={{ minWidth: 0 }}>
+      <div className="d-flex align-items-center justify-content-between mb-3">
+        <span className="fw-black text-body-emphasis" style={{ fontSize: '1rem' }}>{title}</span>
+        <AvgRatingBadge rating={data.avgRating} />
+      </div>
+      <div className="row g-3">
+        <div className="col-6 col-lg-3">
+          <SexDonut data={data.sex} />
+        </div>
+        <div className="col-6 col-lg-3">
+          <ClientTypeDonut data={data.clientType} />
+        </div>
+        <div className="col-6 col-lg-3">
+          <AgeGroupBar data={data.ageGroup} color={serviceColor} />
+        </div>
+        <div className="col-6 col-lg-3">
+          <CriteriaScores data={data.criteria} />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// --- PAGE ---
+export default function ServiceDetailPage({ params }) {
+  const { id } = use(params);
+  const serviceId = parseInt(id);
+  const service = SERVICE_REGISTRY.find(s => s.id === serviceId);
+
+  if (!service) {
+    return (
+      <div className="d-flex flex-column align-items-center justify-content-center min-vh-100 gap-3">
+        <h2 className="fw-black">Service not found</h2>
+        <Link href="/terminal_admin" className="btn btn-primary rounded-pill px-4">← Back to Dashboard</Link>
+      </div>
+    );
+  }
+
+  const data = MOCK_DATA;
+
+  return (
+    <div className="p-4 d-flex flex-column gap-4">
+
+      {/* Overall Service Detail card */}
+      <div className="card border-0 shadow-sm rounded-4 p-4">
+        {/* Header */}
+        <div className="d-flex align-items-center justify-content-between mb-4">
+          <div className="d-flex align-items-center gap-3">
+            <div className="rounded-3 d-flex align-items-center justify-content-center text-white flex-shrink-0"
+              style={{ width: 44, height: 44, background: service.color, fontSize: '1.2rem' }}>
+              <i className={`bi ${service.icon}`}></i>
+            </div>
+            <div>
+              <div className="text-muted fw-bold text-uppercase" style={{ fontSize: '0.6rem', letterSpacing: '0.08em' }}>Service Detail</div>
+              <div className="fw-black text-body-emphasis" style={{ fontSize: '1.1rem' }}>{service.label}</div>
+              <div className="text-muted" style={{ fontSize: '0.7rem' }}>{service.respondents} respondents</div>
+            </div>
+          </div>
+          <AvgRatingBadge rating={data.overall.avgRating} />
+        </div>
+
+        {/* 4 charts */}
+        <div className="row g-4">
+          <div className="col-6 col-lg-3">
+            <SexDonut data={data.overall.sex} />
+          </div>
+          <div className="col-6 col-lg-3">
+            <ClientTypeDonut data={data.overall.clientType} />
+          </div>
+          <div className="col-6 col-lg-3">
+            <AgeGroupBar data={data.overall.ageGroup} color={service.color} />
+          </div>
+          <div className="col-6 col-lg-3">
+            <CriteriaScores data={data.overall.criteria} />
+          </div>
+        </div>
+      </div>
+
+      {/* Internal + External Client cards */}
+      <div className="d-flex gap-4 flex-wrap">
+        <ClientCard title="Internal Client" data={data.internal} serviceColor={service.color} />
+        <ClientCard title="External Client" data={data.external} serviceColor={service.color} />
+      </div>
+
+    </div>
   );
 }
