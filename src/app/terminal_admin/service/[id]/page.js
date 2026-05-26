@@ -1,3 +1,4 @@
+//app/terminal_admin/service/[id]/page.js
 'use client';
 
 import { use, useState } from 'react';

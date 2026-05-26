@@ -1,7 +1,7 @@
+//app/terminal_admin/page.js
 'use client';
 
 import { useState } from 'react';
-import Link from 'next/link';
 import { PieChart, Pie, Cell, LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid } from 'recharts';
 
 // --- DATA ---
@@ -63,26 +63,6 @@ function StatCard({ icon, label, value, sub, pct, color }) {
   );
 }
 
-function SidebarItem({ icon, label, count, active, onClick }) {
-  return (
-    <div
-      onClick={onClick}
-      className={`d-flex align-items-center justify-content-between px-3 py-2 rounded-3 mb-1 ${active ? 'bg-primary text-white' : 'text-body-secondary'}`}
-      style={{ cursor: 'pointer', fontSize: '0.8rem', transition: 'all 0.15s' }}
-    >
-      <div className="d-flex align-items-center gap-2">
-        <i className={`bi ${icon}`}></i>
-        <span className="fw-semibold">{label}</span>
-      </div>
-      {count !== undefined && (
-        <span className={`badge rounded-pill ${active ? 'bg-white text-primary' : 'bg-body-tertiary text-body'}`}>
-          {count}
-        </span>
-      )}
-    </div>
-  );
-}
-
 // --- LOGIN ---
 function LoginPage({ onLogin }) {
   const [email, setEmail] = useState('');
@@ -94,7 +74,7 @@ function LoginPage({ onLogin }) {
     if (!email || !password) { setError('Please fill in all fields.'); return; }
     setLoading(true);
     setTimeout(() => {
-      if (email === 'admin@bfar.da.gov.ph' && password === 'admin123') {
+      if (email === 'admin' && password === 'admin123') {
         onLogin();
       } else {
         setError('Invalid credentials. Try admin@bfar.da.gov.ph / admin123');
@@ -169,112 +149,38 @@ function LoginPage({ onLogin }) {
 }
 
 // --- DASHBOARD ---
-function Dashboard({ onLogout }) {
-  const [activeNav, setActiveNav] = useState('dashboard');
+function Dashboard() {
   const [selectedQuarter, setSelectedQuarter] = useState(quarters[0]);
   const [showQuarterMenu, setShowQuarterMenu] = useState(false);
-  const [search, setSearch] = useState('');
 
   return (
-    <div className="d-flex flex-column min-vh-100 bg-body-tertiary">
+    <div className="p-4">
 
-      {/* Government Letterhead */}
-      <div className="bg-white border-bottom shadow-sm py-2 px-4">
-        <div className="d-flex align-items-center justify-content-between gap-3 flex-wrap">
-          <div className="d-flex align-items-center gap-3">
-            <img src="/bagong-pilipinas.png" alt="Bagong Pilipinas" style={{ height: 56 }} onError={e => e.target.style.display='none'} />
-            <img src="/bfar-logo.png" alt="BFAR" style={{ height: 56 }} onError={e => e.target.style.display='none'} />
-          </div>
-          <div className="text-center flex-grow-1">
-            <div className="text-muted" style={{ fontSize: '0.65rem' }}>Republic of the Philippines · Department of Agriculture</div>
-            <div className="fw-bold small">Bureau of Fisheries and Aquatic Resources</div>
-            <div className="fw-black text-primary" style={{ fontSize: '0.9rem' }}>NATIONAL INLAND FISHERIES TECHNOLOGY CENTER</div>
-            <div className="text-muted" style={{ fontSize: '0.6rem' }}>
-              Km 53 Manila East Road, Sitio Sayoc, Brgy. Tandang Kutyo, Tanay, Rizal &nbsp;|&nbsp;
-              Tel: 0997-745-9961 &nbsp;|&nbsp; Email: niftc@bfar.da.gov.ph
-            </div>
-          </div>
-          <div className="d-flex align-items-center gap-2">
-            <img src="/niftc-logo.png" alt="NIFTC" style={{ height: 56 }} onError={e => e.target.style.display='none'} />
-            <img src="/gender-logo.png" alt="Gender" style={{ height: 56 }} onError={e => e.target.style.display='none'} />
-          </div>
-        </div>
-      </div>
-
-      <div className="d-flex flex-grow-1 overflow-hidden">
-
-        {/* SIDEBAR */}
-        <div className="bg-body border-end d-flex flex-column p-3 shadow-sm" style={{ width: '210px', minHeight: 0, overflowY: 'auto' }}>
-
-          {/* Admin Profile */}
-          <div className="d-flex align-items-center gap-2 mb-4 p-2 rounded-3 bg-body-tertiary">
-            <div className="rounded-circle bg-primary text-white d-flex align-items-center justify-content-center fw-black flex-shrink-0"
-              style={{ width: 36, height: 36, fontSize: '0.85rem' }}>AD</div>
-            <div>
-              <div className="fw-bold small text-body-emphasis">Admin</div>
-              <div className="text-muted" style={{ fontSize: '0.65rem' }}>NIFTC Officer</div>
-            </div>
-          </div>
-
-          <SidebarItem icon="bi-speedometer2" label="Dashboard" active={activeNav === 'dashboard'} onClick={() => setActiveNav('dashboard')} />
-          <SidebarItem icon="bi-hourglass-split" label="Pending Queues" active={activeNav === 'queues'} onClick={() => setActiveNav('queues')} />
-
-          <div className="text-muted mt-3 mb-2 px-1 fw-bold text-uppercase" style={{ fontSize: '0.6rem', letterSpacing: '0.08em' }}>Technical Assistance</div>
-          {serviceBreakdown.map(s => (
-            <Link key={s.label} href={`/terminal_admin/service/${s.id}`} className="text-decoration-none">
-              <SidebarItem icon="bi-circle-fill" label={s.label} count={s.count} active={false} />
-            </Link>
-          ))}
-
-          <div className="text-muted mt-3 mb-2 px-1 fw-bold text-uppercase" style={{ fontSize: '0.6rem', letterSpacing: '0.08em' }}>Archive</div>
-          {quarters.map(q => (
-            <SidebarItem key={q} icon="bi-calendar3" label={q} active={selectedQuarter === q && activeNav === 'archive'}
-              onClick={() => { setSelectedQuarter(q); setActiveNav('archive'); }} />
-          ))}
-
-          <div className="mt-auto pt-3">
-            <button onClick={onLogout} className="btn btn-danger w-100 rounded-3 fw-bold btn-sm py-2">
-              <i className="bi bi-box-arrow-left me-2"></i>Logout
-            </button>
-          </div>
-        </div>
-
-        {/* MAIN CONTENT */}
-        <div className="flex-grow-1 overflow-auto p-4">
-
-          {/* Top Bar */}
-          <div className="d-flex align-items-center gap-3 mb-4 flex-wrap">
-            {/* Quarter Selector */}
-            <div className="position-relative">
-              <button
-                className="btn btn-outline-secondary rounded-pill px-3 py-2 fw-semibold small d-flex align-items-center gap-2"
-                onClick={() => setShowQuarterMenu(v => !v)}
-              >
-                {selectedQuarter} <i className="bi bi-chevron-down"></i>
-              </button>
-              {showQuarterMenu && (
-                <div className="position-absolute bg-body border rounded-3 shadow mt-1 py-1" style={{ zIndex: 100, minWidth: '200px' }}>
-                  {quarters.map(q => (
-                    <div key={q} className="px-3 py-2 small fw-semibold hover-bg"
-                      style={{ cursor: 'pointer' }}
-                      onClick={() => { setSelectedQuarter(q); setShowQuarterMenu(false); }}>
-                      {q}
-                    </div>
-                  ))}
+      {/* Quarter Selector + Export */}
+      <div className="d-flex align-items-center gap-3 mb-4 flex-wrap">
+        <div className="position-relative">
+          <button
+            className="btn btn-outline-secondary rounded-pill px-3 py-2 fw-semibold small d-flex align-items-center gap-2"
+            onClick={() => setShowQuarterMenu(v => !v)}
+          >
+            {selectedQuarter} <i className="bi bi-chevron-down"></i>
+          </button>
+          {showQuarterMenu && (
+            <div className="position-absolute bg-body border rounded-3 shadow mt-1 py-1" style={{ zIndex: 100, minWidth: '200px' }}>
+              {quarters.map(q => (
+                <div key={q} className="px-3 py-2 small fw-semibold"
+                  style={{ cursor: 'pointer' }}
+                  onClick={() => { setSelectedQuarter(q); setShowQuarterMenu(false); }}>
+                  {q}
                 </div>
-              )}
+              ))}
             </div>
-            <button className="btn btn-outline-secondary rounded-pill px-3 py-2 fw-semibold small d-flex align-items-center gap-2">
-              <i className="bi bi-download"></i> Export CSV
-            </button>
-            <div className="ms-auto d-flex align-items-center gap-2">
-              <input className="form-control rounded-pill" placeholder="Search..." style={{ maxWidth: '200px', fontSize: '0.85rem' }}
-                value={search} onChange={e => setSearch(e.target.value)} />
-              <button className="btn btn-outline-secondary rounded-circle p-2">
-                <i className="bi bi-bell"></i>
-              </button>
-            </div>
-          </div>
+          )}
+        </div>
+        <button className="btn btn-outline-secondary rounded-pill px-3 py-2 fw-semibold small d-flex align-items-center gap-2">
+          <i className="bi bi-download"></i> Export CSV
+        </button>
+      </div>
 
           {/* Stat Cards */}
           <div className="d-flex gap-3 mb-4 flex-wrap">
@@ -386,10 +292,7 @@ function Dashboard({ onLogout }) {
               </div>
             </div>
           </div>
-
         </div>
-      </div>
-    </div>
   );
 }
 
@@ -397,6 +300,6 @@ function Dashboard({ onLogout }) {
 export default function AdminPage() {
   const [loggedIn, setLoggedIn] = useState(false);
   return loggedIn
-    ? <Dashboard onLogout={() => setLoggedIn(false)} />
+    ? <Dashboard />
     : <LoginPage onLogin={() => setLoggedIn(true)} />;
 }
