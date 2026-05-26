@@ -76,7 +76,7 @@ export default function AdminLayout({ children }) {
 
         {/* Sidebar */}
         <div className="bg-body border-end d-flex flex-column p-3 shadow-sm flex-shrink-0"
-          style={{ width: '210px', overflowY: 'auto' }}>
+          style={{ width: '220px', overflowY: 'auto' }}>
 
           {/* Admin badge */}
           <div className="d-flex align-items-center gap-2 mb-4 p-2 rounded-3 bg-body-tertiary">
